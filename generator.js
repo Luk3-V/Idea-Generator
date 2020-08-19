@@ -2,26 +2,82 @@
 let categories = {};
 let recently_used = [];
 
+// Store list of entries by category name
 window.onload = function onLoad() {
-	// Store list of entries by category name
 	for (let i = 0; i < category_names.length; i ++) {
 		name = category_names[i];
 		categories[name] = getCategory(name);
 	}
-
 }
 
 function generate() {
 	//reset();
-	//let template = pickRandom('template');
-	//let result = fillInTemplate(template);
+	let template = pickRandom('template', 1);
+	let result = fillInTemplate(template);
+	document.getElementById("result").innerHTML = result;
 	//result = formatOutput(result);
-	let style = pickRandom("single-style", getStyleValue());
-	let tech = pickRandom("technique", getTechValue());
-	document.getElementById("style").innerHTML = style[0];
-	document.getElementById("style").href = style[1];
-	document.getElementById("technique").innerHTML = tech[0];
-	document.getElementById("technique").href = tech[1];
+	//document.getElementById("style").innerHTML = style[0];
+	//document.getElementById("style").href = style[1];
+	//document.getElementById("technique").innerHTML = tech[0];
+	//document.getElementById("technique").href = tech[1];
+}
+
+function fillInTemplate(template) {
+	// replace '@category@' w/ a call to the appropriate generate function
+	if (template.includes('@')) {
+		let category = getTextBetweenTags(template, '@', '@');
+		let replacement = 'NaN';
+		//let generator = command.split(':')[0];
+		// let parameters = [];
+		//if (command.includes(':')) {
+		//	parameters = command.split(':')[1].split(',');
+		//}
+		switch (category) {
+			case 'single-style':
+				replacement = generateLink(category, getStyleValue());
+				break;
+			case 'technique':
+				replacement = generateLink(category, getTechValue());
+				break;
+		}
+
+		template = replaceTextBetweenTags(template, replacement, '@', '@');
+		
+		return fillInTemplate(template); // recursively fill all generators
+	}
+
+	// replace '<a>' w/ appropriate indefinite article based on context
+	if (template.includes('(')) {
+		let word = template.substring(template.indexOf(')') + 2);
+		let replacement = indefiniteArticle(word);
+		template = replaceTextBetweenTags(template, replacement, '(', ')');
+		
+		return fillInTemplate(template); // recursively fill all commands
+	}
+
+	// replace '(v1, v2)' w/ conjugation of verb based on category being singular or plural.
+	//if (template.includes('(')) {
+	//	let options_list = getTextBetweenTags(template, '(', ')').split(',');
+	//	let index = (character_is_group)?1:0;
+	//	let option = options_list[index].trim();
+
+	//	template = replaceTextBetweenTags(template, option, '(', ')');
+	//	return fillInTemplate(template)
+	//}
+
+	return template;
+}
+
+// ---------------------------------- GENERATORS -----------------------------------
+
+function generateLink(category, complexity) {
+	var text = pickRandom(category, complexity);
+	var link = text.substr(text.indexOf('= ')+1);
+	text = text.substr(0,text.indexOf(' ', 2)).trim();
+
+	text = '<a href=' + link + '>' + text + '</a>';
+
+	return text;
 }
 
 // ------------------------------------ UTILITY ------------------------------------
@@ -33,7 +89,7 @@ function getCategory(category_name) {
 	return getTextBetweenTags(data, start_tag, end_tag).split('\n');
 }
 
-// Returns random word & link in list
+// Returns random entry in list
 function pickRandom(category_name, complexity) {
 	let category = categories[category_name];
 	let random_index = -1; 
@@ -45,25 +101,54 @@ function pickRandom(category_name, complexity) {
 		}
 	}
 
-	var result = category[random_index];
-	var link = result.substr(result.indexOf('= ')+1)
-	result = result.substr(2,result.indexOf(' ', 2))
+	var result = resolveOptions(category[random_index].substr(2));
 
-	// Avoid duplicates:
-	/*let max_iterations = 5;
-	for (let i = 0; i < max_iterations; i ++) {
-		var result = resolveOptions(category[random_index]);
-		if (recently_used.includes(result)) {
-			random_index = (random_index + 1) % category.length;
-		}
-		else {
-			recently_used.push(result);
-			break;
-		}
-	}*/
-	return [result, link];
+	return result;
 }
+
+// Replace comma-separated entries inside square brackets with random entry
+function resolveOptions(text) {
+	if (text.includes('[')) {
+		let options = getTextBetweenTags(text, '[', ']');
+		let option = pickRandomFromList(options.split(','));
+		text = replaceTextBetweenTags(text, option, '[', ']');
+		
+		return resolveOptions(text); // recursively fill all options
+	}
+	return text;
+}
+
+function pickRandomFromList(list) {
+	let random_index = Math.floor(Math.random() * list.length); 
+	return list[random_index];
+}
+
+// Note: must handle start and end tags being identical
 
 function getTextBetweenTags(text, start_tag, end_tag) {
 	return text.split(start_tag)[1].split(end_tag)[0];
+}
+
+function replaceTextBetweenTags(text, replacement, start_tag, end_tag) {
+	let start_index = text.indexOf(start_tag);
+	let end_index = start_index + text.substr(start_index + 1).indexOf(end_tag);
+	return text.substr(0, start_index) + replacement + text.substr(end_index + 2);
+}
+
+// Returns indefinite article for given word.
+// TODO: Exceptions for certain words.
+function indefiniteArticle(word) {
+	word = word.trim();
+
+	// exceptions:
+	if (word.startsWith('Ukiyo')) {
+		return 'a';
+	}
+	// return 'an' word starts with vowel, otherwise 'a'
+	let vowels = 'aeiou';
+	if (vowels.includes(word[0])) {
+		return 'an';
+	}
+	
+	return 'a';
 }

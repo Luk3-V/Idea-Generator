@@ -8,24 +8,26 @@
 		<script src="generator.js"></script>
 	</head>
 	<body>
-		<!-- complexity sliders -->
-		<p>Style Complexity: <span id="styleValue"></span></p>
-		<div class="slidercontainer">
-		  	<input type="range" min="1" max="3" value="1" id="styleRange">
+		<div class="center">
+			<div class="input">
+				<!-- complexity sliders -->
+				<p class="label">Style Complexity: <span id="styleValue"></span></p>
+				<div class="slidercontainer">
+				  	<input type="range" min="1" max="3" value="1" id="styleRange">
+				</div>
+
+				<p class="label">Technique Complexity: <span id="techValue"></span></p>
+				<div class="slidercontainer">
+				  	<input type="range" min="1" max="3" value="1" id="techRange">
+				</div>
+
+				<!-- 'generate' button -->
+				<button class="button" onclick="generate()">Generate Idea</button>
+			</div>
+
+			<!-- generated idea text -->
+			<p class = "prompt" id = "result">...</p>
 		</div>
-
-		<p>Technique Complexity: <span id="techValue"></span></p>
-		<div class="slidercontainer">
-		  	<input type="range" min="1" max="3" value="1" id="techRange">
-		</div>
-
-		<!-- 'generate' button -->
-		<button class="button" onclick="generate()">Generate Idea</button>
-
-		<!-- generated idea text -->
-		<a class = "prompt" id = "style">...</a>
-
-		<a class = "prompt" id = "technique">...</a>
 	</body>
 	<script src="slider.js"></script>
 </html>

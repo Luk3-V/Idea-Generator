@@ -1,6 +1,7 @@
 category_names = [
+	"template",
     "single-style",
-    "double-genre",
+    "double-style",
     "technique"
 ];
 
@@ -8,12 +9,15 @@ data = `
 ----------------- Notes ----------------- 
 • Categories are defined by #categoryname: ... #end
 • Hyperlinks are defined by = ...
-• <a> will be replaced with a/an depending on context
+• (a) will be replaced with a/an depending on context
 • @name@ will be replaced with a call to the corresponding generate function
+• [item1, item2] will be replaced w/ a random item in the list 
 
 ----------------- TEMPLATE ----------------- 
 #template:
-
+1 Create @single-style@ art using @technique@.
+1 Create a portait [in (a) @single-style@ art style, using @technique@].
+1 Create a landscape [in (a) @single-style@ art style, using @technique@].
 #end
 
 ----------------- SINGLE STYLE ----------------- 
@@ -117,8 +121,8 @@ data = `
 3 Vorticism               = https://en.wikipedia.org/wiki/Vorticism
 #end
 
------------------ DOUBLE GENRE ----------------- 
-#double-genre:
+----------------- DOUBLE STYLE ----------------- 
+#double-style:
 Abstract Expressionism  = https://en.wikipedia.org/wiki/Abstract_expressionism
 Abstract Illusionism    = https://en.wikipedia.org/wiki/Abstract_illusionism
 Classical Realism       = https://en.wikipedia.org/wiki/Classical_Realism
@@ -133,21 +137,19 @@ Objective Abstraction   = https://en.wikipedia.org/wiki/Objective_abstraction
 
 ----------------- TECHNIQUE ----------------- 
 #technique:
-1 Acrylic                 = https://en.wikipedia.org/wiki/Acrylic_paint
+1 Acrylic_Paint           = https://en.wikipedia.org/wiki/Acrylic_paint
 2 Action_Painting         = https://en.wikipedia.org/wiki/Action_painting
 2 Assemblage              = https://en.wikipedia.org/wiki/Assemblage_(art)
 3 Auto-Destructive        = https://en.wikipedia.org/wiki/Auto-destructive_art
 1 Charcoal                = https://en.wikipedia.org/wiki/Charcoal_(art)
 1 Colored_Pencil          = https://en.wikipedia.org/wiki/Colored_pencil
-1 Comic                   = https://en.wikipedia.org/wiki/Comics
-1 Digital                 = https://en.wikipedia.org/wiki/Digital_art
+3 Digital_Mediums         = https://en.wikipedia.org/wiki/Digital_art
 1 Drawing                 = https://en.wikipedia.org/wiki/Drawing
-2 Embroidery              = https://en.wikipedia.org/wiki/Embroidery
-3 Environmental           = https://en.wikipedia.org/wiki/Environmental_art
+3 Environmental_Mediums   = https://en.wikipedia.org/wiki/Environmental_art
 2 Fresco                  = https://en.wikipedia.org/wiki/Fresco
 1 Gouache                 = https://en.wikipedia.org/wiki/Gouache
 2 Kenetic_Pointillism     = https://en.wikipedia.org/wiki/Kinetic_Pointillism
-1 Oil_Painting            = https://en.wikipedia.org/wiki/Oil_painting
+1 Oil_Paint               = https://en.wikipedia.org/wiki/Oil_painting
 2 Plein_Air               = https://en.wikipedia.org/wiki/Plein_Air
 2 Pointillism             = https://en.wikipedia.org/wiki/Pointillism
 2 Printmaking             = https://en.wikipedia.org/wiki/Printmaking

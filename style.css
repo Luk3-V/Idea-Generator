@@ -1,3 +1,51 @@
-.slidercontainer {
-	width: 100px; /* Width of the outside container */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+}
+
+.center {
+	width: 600px;
+
+	position: absolute;
+	top: 40%;
+	left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    font-family: Verdena, sans-serif;
+    font-size: 20px;
+}
+
+.input {
+	width: 300px;
+	margin: auto;
+  	padding: 20px 0 20px 0;
+
+  	background: lightblue;
+    border: 2px solid grey;
+  	border-radius: 5px;
+}
+	.input .label {
+
+	}
+
+	.input .slidercontainer {
+		margin: 5px auto 10px auto;
+	}
+
+	.input .button {
+		padding: 0 5px 0 5px;
+
+		font-size: 20px;
+	}
+
+.prompt {
+	padding-top: 30px;
+
+	font-weight: bold;
 }
