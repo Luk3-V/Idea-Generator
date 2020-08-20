@@ -12,10 +12,15 @@ window.onload = function onLoad() {
 
 function generate() {
 	//reset();
-	let template = pickRandom('template', 1);
-	let result = fillInTemplate(template);
-	document.getElementById("result").innerHTML = result;
-	//result = formatOutput(result);
+	let template1 = pickRandom('template', 1);
+	let result1 = fillInTemplate(template1);
+	//let template2 = pickRandom('template', 1);
+	//let result2 = fillInTemplate(template2);
+	//let template3 = pickRandom('template', 1);
+	//let result3 = fillInTemplate(template3);
+	document.getElementById("result1").innerHTML = result1;
+	//document.getElementById("result2").innerHTML = result2;
+	//document.getElementById("result3").innerHTML = result3;
 	//document.getElementById("style").innerHTML = style[0];
 	//document.getElementById("style").href = style[1];
 	//document.getElementById("technique").innerHTML = tech[0];
@@ -74,6 +79,7 @@ function generateLink(category, complexity) {
 	var text = pickRandom(category, complexity);
 	var link = text.substr(text.indexOf('= ')+1);
 	text = text.substr(0,text.indexOf(' ', 2)).trim();
+	text = text.replace('_', ' ');
 
 	text = '<a href=' + link + '>' + text + '</a>';
 
@@ -151,4 +157,9 @@ function indefiniteArticle(word) {
 	}
 	
 	return 'a';
+}
+
+function formatOutput(result) {
+	
+	return result;
 }

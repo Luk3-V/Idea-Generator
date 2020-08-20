@@ -5,6 +5,7 @@
 }
 
 body {
+  	background: #060017;
 
 }
 
@@ -26,26 +27,74 @@ body {
 	margin: auto;
   	padding: 20px 0 20px 0;
 
-  	background: lightblue;
-    border: 2px solid grey;
+  	background: #282828;
   	border-radius: 5px;
 }
 	.input .label {
-
+		color: white;
 	}
 
 	.input .slidercontainer {
-		margin: 5px auto 10px auto;
+		margin: 5px auto 15px auto;
 	}
+		.slider {
+			-webkit-appearance: none;
+			appearance: none;
+			height: 6px;
+  			border-radius: 5px;
+  			background: grey;
+			outline: none;
+		}
+
+		.slider::-webkit-slider-thumb:hover {
+			background: #d16971;
+		}
+
+		.slider::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 18px;
+			height: 18px;
+			border-radius: 50%; 
+			background: white;
+			cursor: pointer;
+			box-shadow: 0 0 0 3px #282828;
+		}
+
+		.slider::-moz-range-thumb {
+			width: 18px;
+			height: 18px;
+			border-radius: 50%;
+			background: white;
+			cursor: pointer;
+		}
 
 	.input .button {
-		padding: 0 5px 0 5px;
+		margin-top: 10px;
+		padding: 5px 10px 5px 10px;
 
+		background: white;
+		border: none;
+		border-radius: 5px;
 		font-size: 20px;
+		transition-duration: 0.4s;
+	}
+	.input .button:hover {
+		background: #d16971;
 	}
 
 .prompt {
-	padding-top: 30px;
+	padding: 30px 0 40px 0;
 
 	font-weight: bold;
+	color: white;
 }
+	.prompt a {
+		color: #d16971;
+		text-decoration: none;
+		line-height: 25px;
+	}
+
+	.prompt a:hover {
+  		text-decoration: underline;
+	}

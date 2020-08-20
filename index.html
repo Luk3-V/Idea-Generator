@@ -13,12 +13,12 @@
 				<!-- complexity sliders -->
 				<p class="label">Style Complexity: <span id="styleValue"></span></p>
 				<div class="slidercontainer">
-				  	<input type="range" min="1" max="3" value="1" id="styleRange">
+				  	<input type="range" min="1" max="3" value="1" class="slider" id="styleRange">
 				</div>
 
 				<p class="label">Technique Complexity: <span id="techValue"></span></p>
 				<div class="slidercontainer">
-				  	<input type="range" min="1" max="3" value="1" id="techRange">
+				  	<input type="range" min="1" max="3" value="1" class="slider" id="techRange">
 				</div>
 
 				<!-- 'generate' button -->
@@ -26,7 +26,9 @@
 			</div>
 
 			<!-- generated idea text -->
-			<p class = "prompt" id = "result">...</p>
+			<p class = "prompt" id = "result1">...</p>
+			<!--<p class = "prompt" id = "result2">...</p>
+			<p class = "prompt" id = "result3">...</p>-->
 		</div>
 	</body>
 	<script src="slider.js"></script>
