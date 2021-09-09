@@ -1,7 +1,7 @@
 import csv
 from itertools import islice
 
-start = 524
+start = 1056
 
 with open('nouns-freq.csv') as csvfile, open('nouns-type.csv', 'a') as outfile:
 	nouns = csv.reader(csvfile, delimiter=',')
@@ -15,8 +15,10 @@ with open('nouns-freq.csv') as csvfile, open('nouns-type.csv', 'a') as outfile:
 # o - object
 # p - person
 # a - animal/plant
+# b - body part
 # s - setting
 # c - concept
-# g - group (plural)
-# b - body part
+# m - multiple objects (plural object)
+# g - group of people (plural person)
+# l - group of living things (plural animal/plant)
 # io - indirect object
