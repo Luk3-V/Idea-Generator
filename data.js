@@ -2,7 +2,12 @@ category_names = [
 	"template",
     "single-style",
     "double-style",
-    "technique"
+    "technique",
+    "object",
+    "person",
+    "animal",
+    "setting",
+    "adjective"
 ];
 
 data = `
@@ -18,6 +23,7 @@ data = `
 1 Create @single-style@ art using @technique@.
 1 Create a portait [in (a) @single-style@ art style, using @technique@].
 1 Create a landscape [in (a) @single-style@ art style, using @technique@].
+2 Create @single-style@ art using @technique@. Show (a) @adjective@ [@object@, @person@, @animal@] in (a) @setting@.
 #end
 
 ----------------- SINGLE STYLE ----------------- 
@@ -31,7 +37,7 @@ data = `
 1 Cartoon                 = https://en.wikipedia.org/wiki/Cartoon
 3 Cloisonnism             = https://en.wikipedia.org/wiki/Cloisonnism
 3 COBRA                   = https://en.wikipedia.org/wiki/COBRA_(art_movement)
-3 Color_Field             = https://en.wikipedia.org/wiki/Color_Field
+3 Color Field             = https://en.wikipedia.org/wiki/Color_Field
 3 Computer                = https://en.wikipedia.org/wiki/Computer_art
 3 Concrete                = https://en.wikipedia.org/wiki/Concrete_art
 3 Conceptual              = https://en.wikipedia.org/wiki/Conceptual_art
@@ -39,12 +45,12 @@ data = `
 2 Contemporary            = https://en.wikipedia.org/wiki/Contemporary_art
 2 Cubism                  = https://en.wikipedia.org/wiki/Cubism
 2 Dadaism                 = https://en.wikipedia.org/wiki/Dada
-3 Dau_al_Set              = https://en.wikipedia.org/wiki/Dau-al-Set
+3 Dau al Set              = https://en.wikipedia.org/wiki/Dau-al-Set
 3 Excessivism             = https://en.wikipedia.org/wiki/Excessivism
 2 Expressionism           = https://en.wikipedia.org/wiki/Expressionism
 3 Fauvism                 = https://en.wikipedia.org/wiki/Fauvism
 2 Figurative              = https://en.wikipedia.org/wiki/Figurative_art
-3 Figuration_Libre        = https://en.wikipedia.org/wiki/Figuration_Libre
+3 Figuration Libre        = https://en.wikipedia.org/wiki/Figuration_Libre
 1 Fine                    = https://en.wikipedia.org/wiki/Fine_Art
 2 Folk                    = https://en.wikipedia.org/wiki/Folk_art
 3 Funk                    = https://en.wikipedia.org/wiki/Funk_art
@@ -137,20 +143,20 @@ Objective Abstraction   = https://en.wikipedia.org/wiki/Objective_abstraction
 
 ----------------- TECHNIQUE ----------------- 
 #technique:
-1 Acrylic_Paint           = https://en.wikipedia.org/wiki/Acrylic_paint
-2 Action_Painting         = https://en.wikipedia.org/wiki/Action_painting
+1 Acrylic Paint           = https://en.wikipedia.org/wiki/Acrylic_paint
+2 Action Painting         = https://en.wikipedia.org/wiki/Action_painting
 2 Assemblage              = https://en.wikipedia.org/wiki/Assemblage_(art)
 3 Auto-Destructive        = https://en.wikipedia.org/wiki/Auto-destructive_art
 1 Charcoal                = https://en.wikipedia.org/wiki/Charcoal_(art)
-1 Colored_Pencil          = https://en.wikipedia.org/wiki/Colored_pencil
-3 Digital_Mediums         = https://en.wikipedia.org/wiki/Digital_art
+1 Colored Pencil          = https://en.wikipedia.org/wiki/Colored_pencil
+3 Digital Mediums         = https://en.wikipedia.org/wiki/Digital_art
 1 Drawing                 = https://en.wikipedia.org/wiki/Drawing
-3 Environmental_Mediums   = https://en.wikipedia.org/wiki/Environmental_art
+3 Environmental Mediums   = https://en.wikipedia.org/wiki/Environmental_art
 2 Fresco                  = https://en.wikipedia.org/wiki/Fresco
 1 Gouache                 = https://en.wikipedia.org/wiki/Gouache
-2 Kenetic_Pointillism     = https://en.wikipedia.org/wiki/Kinetic_Pointillism
-1 Oil_Paint               = https://en.wikipedia.org/wiki/Oil_painting
-2 Plein_Air               = https://en.wikipedia.org/wiki/Plein_Air
+2 Kenetic Pointillism     = https://en.wikipedia.org/wiki/Kinetic_Pointillism
+1 Oil Paint               = https://en.wikipedia.org/wiki/Oil_painting
+2 Plein Air               = https://en.wikipedia.org/wiki/Plein_Air
 2 Pointillism             = https://en.wikipedia.org/wiki/Pointillism
 2 Printmaking             = https://en.wikipedia.org/wiki/Printmaking
 2 Stippling               = https://en.wikipedia.org/wiki/Stippling

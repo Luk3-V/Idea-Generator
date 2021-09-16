@@ -14,7 +14,7 @@ money, o.c.g
 thanks, .
 name, c
 guys, g
-years, g
+years, k
 place, c
 girl, p
 father, p
@@ -681,7 +681,7 @@ subject, c
 vacation, c.s
 county, c.s
 defense, c
-reasons, m
+reasons, k
 file, o
 goodness, c
 block, o
@@ -694,14 +694,14 @@ gate, o.s
 grandpa, p
 mail, o.c
 ear, b
-powers, g
+powers, k
 drive, c.s
 village, s.g
 engine, o
 smile, b
 match, c
 evil, c.g
-streets, g
+streets, m
 staff, g.o
 contract, o.c
 base, s.o
@@ -991,7 +991,7 @@ lies, m
 millions, .
 try, .
 nightmare, c.s
-ambulance, o
+ambulance, o.s
 steps, m
 jungle, s
 results, m
