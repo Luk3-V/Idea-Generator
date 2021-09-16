@@ -2,45 +2,68 @@
 <html>
 	<head>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-		<link rel="icon" href="../favicon.ico" type="image/x-icon" />
-		<link rel="stylesheet" href="style.css">
-		<script src="data.js"></script>
+		<!-- jQuery  -->
+	    <script src="https://code.jquery.com/jquery-3.1.1.slim.js" integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA=" crossorigin="anonymous"></script>
+
+	    <!-- Bootstrap CSS -->
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+	    <!-- Bootstrap JavaScript -->
+	    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+
+	    <!-- Custom CSS-->
+	    <link rel="stylesheet" href="style.css">
+
+	    <!-- Custom JavaScript-->
+	    <script src="data.js"></script>
+		<script src="dataNouns.js"></script>
+		<script src="dataAdjectives.js"></script>
 		<script src="generator.js"></script>
 	</head>
 	<body>
-		<div class="center">
-			<div class="input">
-				<!-- complexity sliders -->
-				<p class="label">Style Complexity: <span id="styleValue"></span></p>
-				<div class="slidercontainer">
-				  	<input type="range" min="1" max="3" value="1" class="slider" id="styleRange">
-				</div>
+		<div class="containter mt-5">
+			<div class="container d-grid justify-content-center" id="menu">
+				<nav>
+					<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+						<button class="nav-link active border-2" id="basicTab" data-bs-toggle="tab" data-bs-target="#basic" type="button" role="tab" aria-controls="basic" aria-selected="true">Basic</button>
 
-				<p class="label">Technique Complexity: <span id="techValue"></span></p>
-				<div class="slidercontainer">
-				  	<input type="range" min="1" max="3" value="1" class="slider" id="techRange">
-				</div>
+						<button class="nav-link border-2" id="advancedTab" data-bs-toggle="tab" data-bs-target="#advanced" type="button" role="tab" aria-controls="advanced" aria-selected="true">Advanced</button>
+					</div>
+				</nav>
+				<div class="tab-content text-white" id="nav-tab-content">
+					<!-- basic sliders -->
+					<div class="tab-pane fade show active p-3" id="basic" role="tab-panel" aria-labelledby="basicTab">
+						<label for="basicRange" class="form-label">Complexity: <span id="basicValue"></span></label>
+						<input type="range" class="form-range" min="1" max="3" value="1" id="basicRange">
+					</div>
+					<!-- advanced sliders -->
+					<div class="tab-pane fade p-3" id="advanced" role="tab-panel" aria-labelledby="advancedTab">
+						<label for="promptRange" class="form-label">Prompt Complexity: <span id="promptValue"></span></label>
+						<input type="range" class="form-range" min="1" max="3" value="1" id="promptRange">
 
-				<!-- 'generate' button -->
-				<button class="button" onclick="generate()">Generate Idea</button>
+						<label for="styleRange" class="form-label">Style Complexity: <span id="styleValue"></span></label>
+						<input type="range" class="form-range" min="1" max="3" value="1" id="styleRange">
+
+						<label for="techRange" class="form-label">Technique Complexity: <span id="techValue"></span></label>
+						<input type="range" class="form-range" min="1" max="3" value="1" id="techRange">
+
+						<label for="nounRange" class="form-label">Noun Complexity: <span id="nounValue"></span></label>
+						<input type="range" class="form-range" min="1" max="3" value="1" id="nounRange">
+
+						<label for="adjRange" class="form-label">Adjective Complexity: <span id="adjValue"></span></label>
+						<input type="range" class="form-range" min="1" max="3" value="1" id="adjRange">
+					</div>
+				</div>	
+				<button class="btn btn-outline-light mt-4" id="generateButton" type="button" onclick="generate()">Generate</button>
 			</div>
-
-			<!-- generated idea text -->
-			<p class = "prompt" id = "result1">...</p>
-			<!--<p class = "prompt" id = "result2">...</p>
-			<p class = "prompt" id = "result3">...</p>-->
+			
+			<div class="container text-white text-center" id="output">
+				<p class="prompt" id="result">...</p>
+			</div>
 		</div>
+			
+
 	</body>
 	<script src="slider.js"></script>
 </html>
-
-<!-- TODO:
-person list
-object list
-location list
-
-prompt list
-random prompt generator
-
-
--->
