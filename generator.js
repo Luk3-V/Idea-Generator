@@ -2,7 +2,7 @@
 let categories = {};
 let recently_used = [];
 
-// Store list of entries by category name
+// Store list of entries by category name 
 window.onload = function onLoad() {
 	for (let i = 0; i < category_names.length; i ++) {
 		name = category_names[i];
@@ -10,39 +10,37 @@ window.onload = function onLoad() {
 	}
 }
 
+// Generate prompt by picking a random template, then filled in by fillInTemplate()
+// Then returning prompt in HTML
 function generate() {
-	//reset();
-	let template1 = pickRandom('template', 1);
+	let template1 = pickRandom('template', getPromptValue());
 	let result1 = fillInTemplate(template1);
-	//let template2 = pickRandom('template', 1);
-	//let result2 = fillInTemplate(template2);
-	//let template3 = pickRandom('template', 1);
-	//let result3 = fillInTemplate(template3);
-	document.getElementById("result1").innerHTML = result1;
-	//document.getElementById("result2").innerHTML = result2;
-	//document.getElementById("result3").innerHTML = result3;
-	//document.getElementById("style").innerHTML = style[0];
-	//document.getElementById("style").href = style[1];
-	//document.getElementById("technique").innerHTML = tech[0];
-	//document.getElementById("technique").href = tech[1];
+	document.getElementById("result").innerHTML = result1;
 }
 
+// Recursively fill in template parameters with random items, 
+// fill in correct indefinite article
 function fillInTemplate(template) {
 	// replace '@category@' w/ a call to the appropriate generate function
 	if (template.includes('@')) {
 		let category = getTextBetweenTags(template, '@', '@');
 		let replacement = 'NaN';
-		//let generator = command.split(':')[0];
-		// let parameters = [];
-		//if (command.includes(':')) {
-		//	parameters = command.split(':')[1].split(',');
-		//}
+
 		switch (category) {
 			case 'single-style':
-				replacement = generateLink(category, getStyleValue());
+				replacement = generateItem(category, getStyleValue());
 				break;
 			case 'technique':
-				replacement = generateLink(category, getTechValue());
+				replacement = generateItem(category, getTechValue());
+				break;
+			case 'object':
+			case 'person':
+			case 'animal':
+			case 'setting':
+				replacement = generateItem(category, getNounValue());
+				break;
+			case 'adjective':
+				replacement = generateItem(category, getAdjValue());
 				break;
 		}
 
@@ -75,39 +73,57 @@ function fillInTemplate(template) {
 
 // ---------------------------------- GENERATORS -----------------------------------
 
-function generateLink(category, complexity) {
+// Generates random item using category & complexity
+// Includes link if there is one
+function generateItem(category, complexity){
 	var text = pickRandom(category, complexity);
-	var link = text.substr(text.indexOf('= ')+1);
-	text = text.substr(0,text.indexOf(' ', 2)).trim();
-	text = text.replace('_', ' ');
+	if(text.includes('=')) {
+		var link = text.substr(text.indexOf('= ')+1);
+		text = text.substr(0,text.indexOf('= ')-1).trim();
 
-	text = '<a href=' + link + '>' + text + '</a>';
-
+		text = '<a href=' + link + ' target=\'_blank\'>' + text + '</a>';
+	}
 	return text;
 }
 
 // ------------------------------------ UTILITY ------------------------------------
 
-// Returns list of lines between #category_name: and #end in the data file
+// Returns list of lines between #category_name: and #end from data files
 function getCategory(category_name) {
 	let start_tag = `#${category_name}:\n`;
 	let end_tag = '\n#end';
+
+	switch(category_name) {
+		case 'object':
+		case 'person':
+		case 'animal':
+		case 'setting':
+			return getTextBetweenTags(dataNouns, start_tag, end_tag).split('\n');
+		case 'adjective':
+			return getTextBetweenTags(dataAdjectives, start_tag, end_tag).split('\n');
+
+	}
+
 	return getTextBetweenTags(data, start_tag, end_tag).split('\n');
 }
 
-// Returns random entry in list
+// Returns random entry in list w/ less or equal complexity
+// Except for template complexity 2+ which ignores complexity 1
 function pickRandom(category_name, complexity) {
 	let category = categories[category_name];
 	let random_index = -1; 
 	
 	while(random_index == -1) {
 		let temp = Math.floor(Math.random() * category.length);
-		if(category[temp].charAt(0) <= complexity) {
+		if(category_name == 'template' && complexity >= 2 && category[temp].charAt(0) == 1) {
+			continue;
+		}
+		else if(category[temp].charAt(0) <= complexity) {
 			random_index = temp
 		}
 	}
 
-	var result = resolveOptions(category[random_index].substr(2));
+	var result = resolveOptions(category[random_index].substr(2).trim());  //-------------------- NOTE: only used for template?
 
 	return result;
 }
@@ -157,9 +173,4 @@ function indefiniteArticle(word) {
 	}
 	
 	return 'a';
-}
-
-function formatOutput(result) {
-	
-	return result;
 }
