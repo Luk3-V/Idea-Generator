@@ -13,9 +13,15 @@ window.onload = function onLoad() {
 // Generate prompt by picking a random template, then filled in by fillInTemplate()
 // Then returning prompt in HTML
 function generate() {
-	let template1 = pickRandom('template', getPromptValue());
-	let result1 = fillInTemplate(template1);
-	document.getElementById("result").innerHTML = result1;
+	if(getToggleValue()) {
+		let template = pickRandom('template2', getPromptValue());
+		let result = fillInTemplate(template);
+		document.getElementById("result").innerHTML = result;
+	} else {
+		let template = pickRandom('template1', getPromptValue());
+		let result = fillInTemplate(template);
+		document.getElementById("result").innerHTML = result;
+	}
 }
 
 // Recursively fill in template parameters with random items, 

@@ -41,8 +41,7 @@ body {
 }
 
 .tab-pane {
-  padding-bottom: 0!important;
-  min-height: 100px;
+  padding: 20px 0!important;
 }
 
 .tab-content {
@@ -68,6 +67,11 @@ body {
   .form-range::-webkit-slider-thumb:hover {
     background: white;
   }
+
+.form-check {
+  margin: 0;
+  padding-bottom: 20px;
+}
 
 #generateButton {
   

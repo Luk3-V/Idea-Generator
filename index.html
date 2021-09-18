@@ -54,7 +54,12 @@
 						<label for="adjRange" class="form-label">Adjective Complexity: <span id="adjValue"></span></label>
 						<input type="range" class="form-range" min="1" max="3" value="1" id="adjRange">
 					</div>
-				</div>	
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="toggleCheck" checked>
+						<label class="form-check-label" for="toggleCheck">Style & Technique</label>
+					</div>
+				</div>
+					
 				<button class="btn btn-outline-light mt-4" id="generateButton" type="button" onclick="generate()">Generate</button>
 			</div>
 			
@@ -65,5 +70,5 @@
 			
 
 	</body>
-	<script src="slider.js"></script>
+	<script src="settings.js"></script>
 </html>

@@ -1,5 +1,6 @@
 category_names = [
-	"template",
+	"template1",
+    "template2",
     "single-style",
     "double-style",
     "technique",
@@ -19,11 +20,18 @@ data = `
 • [item1, item2] will be replaced w/ a random item in the list 
 
 ----------------- TEMPLATE ----------------- 
-#template:
+#template1:
+1 Show (a) @adjective@ [@object@, @person@, @animal@] in (a) @setting@.
+#end
+
+----------------- STYLE & TECHNIQUE TEMPLATE ----------------- 
+#template2:
 1 Create @single-style@ art using @technique@.
 1 Create a portait [in (a) @single-style@ art style, using @technique@].
 1 Create a landscape [in (a) @single-style@ art style, using @technique@].
 2 Create @single-style@ art using @technique@. Show (a) @adjective@ [@object@, @person@, @animal@] in (a) @setting@.
+2 Create a portait [in (a) @single-style@ art style, using @technique@] of (a) @adjective@ [@person@, @animal@] in (a) @setting@.
+2 Create a landscape [in (a) @single-style@ art style, using @technique@] of (a) @adjective@ [@object@, @person@, @animal@] in (a) @setting@.
 #end
 
 ----------------- SINGLE STYLE ----------------- 
