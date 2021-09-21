@@ -1,4 +1,4 @@
-dataNouns = `
+nounData = `
 #object:
 1 apple
 1 star
@@ -26,4 +26,4 @@ dataNouns = `
 1 car
 2 jungle
 #end
-`
+`;

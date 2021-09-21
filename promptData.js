@@ -1,14 +1,17 @@
 category_names = [
-	"template1",
-    "template2",
-    "single-style",
-    "double-style",
-    "technique",
+	"template",
+    "NP",
+    "AP",
+    "PP",
+    "VP",
     "object",
     "person",
     "animal",
     "setting",
-    "adjective"
+    "adjective",
+    "verb",
+    "style",
+    "technique"
 ];
 
 data = `
@@ -16,26 +19,39 @@ data = `
 • Categories are defined by #categoryname: ... #end
 • Hyperlinks are defined by = ...
 • (a) will be replaced with a/an depending on context
-• @name@ will be replaced with a call to the corresponding generate function
+• {category} will be replaced with a call to the corresponding generate function
 • [item1, item2] will be replaced w/ a random item in the list 
 
 ----------------- TEMPLATE ----------------- 
-#template1:
-1 Show (a) @adjective@ [@object@, @person@, @animal@] in (a) @setting@.
+#template:
+1 Show (a) {AP} [{object}, {person}, {animal}] {PP}.
+1 Create a portait of (a) {AP} [{person}, {animal}].
+1 Combine (a) {AP} [{object}, {person}, {animal}] & (a) {AP} [{object}, {person}, {animal}].
+1 Show (a) {AP} [{object}, {person}, {animal}] {VP} next to (a) {AP} [{object}, {person}, {animal}].
 #end
 
------------------ STYLE & TECHNIQUE TEMPLATE ----------------- 
-#template2:
-1 Create @single-style@ art using @technique@.
-1 Create a portait [in (a) @single-style@ art style, using @technique@].
-1 Create a landscape [in (a) @single-style@ art style, using @technique@].
-2 Create @single-style@ art using @technique@. Show (a) @adjective@ [@object@, @person@, @animal@] in (a) @setting@.
-2 Create a portait [in (a) @single-style@ art style, using @technique@] of (a) @adjective@ [@person@, @animal@] in (a) @setting@.
-2 Create a landscape [in (a) @single-style@ art style, using @technique@] of (a) @adjective@ [@object@, @person@, @animal@] in (a) @setting@.
+----------------- Noun Phrase ----------------- 
+#NP:
+1 (a) {AP} {setting}
+#end
+----------------- Adjective Phrase ----------------- 
+#AP:
+1 
+1 {adjective}
+1 very {adjective}
+#end
+----------------- Preposition Phrase ----------------- 
+#PP:
+1 in {NP}
 #end
 
------------------ SINGLE STYLE ----------------- 
-#single-style:
+----------------- Verb Phrase ----------------- 
+#VP:
+1 {verb}
+#end
+
+----------------- STYLE ----------------- 
+#style:
 2 ASCII                   = https://en.wikipedia.org/wiki/ASCII_art
 1 Abstract                = https://en.wikipedia.org/wiki/Abstract_art
 1 Aesthetic               = https://en.wikipedia.org/wiki/Aestheticism
@@ -133,20 +149,16 @@ data = `
 3 Ukiyo-e                 = https://en.wikipedia.org/wiki/Ukiyo-e
 3 Vanitas                 = https://en.wikipedia.org/wiki/Vanitas
 3 Vorticism               = https://en.wikipedia.org/wiki/Vorticism
-#end
-
------------------ DOUBLE STYLE ----------------- 
-#double-style:
-Abstract Expressionism  = https://en.wikipedia.org/wiki/Abstract_expressionism
-Abstract Illusionism    = https://en.wikipedia.org/wiki/Abstract_illusionism
-Classical Realism       = https://en.wikipedia.org/wiki/Classical_Realism
-Cubo-Futurism           = https://en.wikipedia.org/wiki/Cubo-Futurism
-Fantastic Realism       = https://en.wikipedia.org/wiki/Vienna_School_of_Fantastic_Realism
-Surreal Automatism      = https://en.wikipedia.org/wiki/Surrealist_automatism
-Lyrical Abstraction     = https://en.wikipedia.org/wiki/Lyrical_abstraction
-Magic Realism           = https://en.wikipedia.org/wiki/Magic_realism
-Modular Constructivism  = https://en.wikipedia.org/wiki/Modular_constructivism
-Objective Abstraction   = https://en.wikipedia.org/wiki/Objective_abstraction
+3 Abstract Expressionism  = https://en.wikipedia.org/wiki/Abstract_expressionism
+3 Abstract Illusionism    = https://en.wikipedia.org/wiki/Abstract_illusionism
+3 Classical Realism       = https://en.wikipedia.org/wiki/Classical_Realism
+3 Cubo-Futurism           = https://en.wikipedia.org/wiki/Cubo-Futurism
+3 Fantastic Realism       = https://en.wikipedia.org/wiki/Vienna_School_of_Fantastic_Realism
+3 Surreal Automatism      = https://en.wikipedia.org/wiki/Surrealist_automatism
+3 Lyrical Abstraction     = https://en.wikipedia.org/wiki/Lyrical_abstraction
+3 Magic Realism           = https://en.wikipedia.org/wiki/Magic_realism
+3 Modular Constructivism  = https://en.wikipedia.org/wiki/Modular_constructivism
+3 Objective Abstraction   = https://en.wikipedia.org/wiki/Objective_abstraction
 #end
 
 ----------------- TECHNIQUE ----------------- 
