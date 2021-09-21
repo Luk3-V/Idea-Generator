@@ -58,6 +58,20 @@ function getAdjValue() {
 	return adj.value
 }
 
+// Verb Complexity
+let verb = document.getElementById("verbRange");
+let verbValue = document.getElementById("verbValue");
+
+verb.oninput = function() {
+  verbValue.innerHTML = this.value;
+}
+
+function getVerbValue() {
+	return verb.value
+}
+
+
+
 // Basic Complexity
 let basic = document.getElementById("basicRange");
 let basicValue = document.getElementById("basicValue");
@@ -71,6 +85,8 @@ basic.oninput = function() {
 function getBasicValue() {
 	return basic.value
 }
+
+
 
 // Update HTML when switching tabs
 let basicTab = document.getElementById("basicTab");
@@ -89,17 +105,48 @@ advancedTab.onclick = function() {
 	adjValue.innerHTML = adj.value;
 }
 
-// Style & Technique Toggle
-let toggle = true;
+// Style Toggle
+let styleToggle = true;
 
-$(document).on('change','#toggleCheck', function() {
-	if($('#toggleCheck').is(':checked')){
-		toggle = true;
+$(document).on('change','#styleToggle', function() {
+	let styleRange = document.getElementById("styleRange");
+	let styleLabel = document.getElementById("styleLabel");
+	if($('#styleToggle').is(':checked')){
+		styleToggle = true;
+		styleRange.removeAttribute("disabled");
+		styleRange.removeAttribute("style");
+		styleLabel.removeAttribute("style");
 	} else {
-		toggle = false;
+		styleToggle = false;
+		styleRange.setAttribute("disabled", "");
+		styleRange.setAttribute("style", "opacity: 0.4;");
+		styleLabel.setAttribute("style", "opacity: 0.4;");
 	}
 });
 
-function getToggleValue() {
-	return toggle;
+function getStyleToggle() {
+	return styleToggle;
+}
+
+// Technique Toggle
+let techToggle = true;
+
+$(document).on('change','#techToggle', function() {
+	let techRange = document.getElementById("techRange");
+	let techLabel = document.getElementById("techLabel");
+	if($('#techToggle').is(':checked')){
+		techToggle = true;
+		techRange.removeAttribute("disabled");
+		techRange.removeAttribute("style");
+		techLabel.removeAttribute("style");
+	} else {
+		techToggle = false;
+		techRange.setAttribute("disabled", "");
+		techRange.setAttribute("style", "opacity: 0.4;");
+		techLabel.setAttribute("style", "opacity: 0.4;");
+	}
+});
+
+function getTechToggle() {
+	return techToggle;
 }

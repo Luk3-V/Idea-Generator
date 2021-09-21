@@ -1,4 +1,3 @@
-
 let categories = {};
 let recently_used = [];
 
@@ -13,7 +12,18 @@ window.onload = function onLoad() {
 // Generate prompt by picking a random template, then filled in by fillInTemplate()
 // Then returning prompt in HTML
 function generate() {
-	if(getToggleValue()) {
+	let template = pickRandom('template', getPromptValue());
+	let result = fillInTemplate(template)+'<br>';
+	if(getStyleToggle()) {
+		let style = fillInTemplate('In (a) {style} art style.');
+		result += '<br>'+style;
+	}
+	if(getTechToggle()) {
+		let tech = fillInTemplate('Using {technique}.');
+		result += '<br>'+tech;
+	}
+	document.getElementById("result").innerHTML = result;
+	/*if(getToggleValue()) {
 		let template = pickRandom('template2', getPromptValue());
 		let result = fillInTemplate(template);
 		document.getElementById("result").innerHTML = result;
@@ -21,23 +31,30 @@ function generate() {
 		let template = pickRandom('template1', getPromptValue());
 		let result = fillInTemplate(template);
 		document.getElementById("result").innerHTML = result;
-	}
+	}*/
 }
 
 // Recursively fill in template parameters with random items, 
 // fill in correct indefinite article
 function fillInTemplate(template) {
-	// replace '@category@' w/ a call to the appropriate generate function
-	if (template.includes('@')) {
-		let category = getTextBetweenTags(template, '@', '@');
+	// substitute '{category}' w/ a call to the appropriate generate function
+	if (template.includes('{')) {
+		let category = getTextBetweenTags(template, '{', '}');
 		let replacement = 'NaN';
 
 		switch (category) {
-			case 'single-style':
+			case 'style':
 				replacement = generateItem(category, getStyleValue());
 				break;
 			case 'technique':
 				replacement = generateItem(category, getTechValue());
+				break;
+
+			case 'NP':
+			case 'AP':
+			case 'PP':
+			case 'VP':
+				replacement = generateItem(category, 1);
 				break;
 			case 'object':
 			case 'person':
@@ -48,14 +65,17 @@ function fillInTemplate(template) {
 			case 'adjective':
 				replacement = generateItem(category, getAdjValue());
 				break;
+			case 'verb':
+				replacement = generateItem(category, getVerbValue());
+				break;
 		}
 
-		template = replaceTextBetweenTags(template, replacement, '@', '@');
+		template = replaceTextBetweenTags(template, replacement, '{', '}');
 		
 		return fillInTemplate(template); // recursively fill all generators
 	}
 
-	// replace '<a>' w/ appropriate indefinite article based on context
+	// replace '(a)' w/ appropriate indefinite article based on context
 	if (template.includes('(')) {
 		let word = template.substring(template.indexOf(')') + 2);
 		let replacement = indefiniteArticle(word);
@@ -104,10 +124,11 @@ function getCategory(category_name) {
 		case 'person':
 		case 'animal':
 		case 'setting':
-			return getTextBetweenTags(dataNouns, start_tag, end_tag).split('\n');
+			return getTextBetweenTags(nounData, start_tag, end_tag).split('\n');
 		case 'adjective':
-			return getTextBetweenTags(dataAdjectives, start_tag, end_tag).split('\n');
-
+			return getTextBetweenTags(adjectiveData, start_tag, end_tag).split('\n');
+		case 'verb':
+			return getTextBetweenTags(verbData, start_tag, end_tag).split('\n');
 	}
 
 	return getTextBetweenTags(data, start_tag, end_tag).split('\n');
@@ -121,10 +142,7 @@ function pickRandom(category_name, complexity) {
 	
 	while(random_index == -1) {
 		let temp = Math.floor(Math.random() * category.length);
-		if(category_name == 'template' && complexity >= 2 && category[temp].charAt(0) == 1) {
-			continue;
-		}
-		else if(category[temp].charAt(0) <= complexity) {
+		if(category[temp].charAt(0) <= complexity) {
 			random_index = temp
 		}
 	}
