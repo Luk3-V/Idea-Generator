@@ -5,7 +5,6 @@ category_names = [
     "AP",
     "PP",
     "VP",
-    "verbPhrase",
 
     "object",
     "person",
