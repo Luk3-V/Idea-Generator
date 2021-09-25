@@ -76,9 +76,6 @@ function fillInTemplate(template) {
 			case 'verb':
 				replacement = generateItem(category, args, getVerbValue());
 				break;
-			case 'verbPhrase':
-				replacement = generateItem(category, null, getVerbValue());
-				break;
 		}
 
 		template = replaceTextBetweenTags(template, replacement, '{', '}');
@@ -142,8 +139,6 @@ function getCategory(category_name) {
 			return getTextBetweenTags(adjectiveData, start_tag, end_tag).split('\n');
 		case 'verb':
 			return getTextBetweenTags(verbData, start_tag, end_tag).split('\n');
-		case 'verbPhrase':
-			return getTextBetweenTags(verbPhraseData, start_tag, end_tag).split('\n');
 	}
 
 	return getTextBetweenTags(data, start_tag, end_tag).split('\n');
