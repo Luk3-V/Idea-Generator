@@ -26,4 +26,18 @@ nounData = `
 1 car
 2 jungle
 #end
+
+#concept:
+1 time
+1 love
+1 hate
+2 illusion
+#end
+
+#mood:
+1 calm
+1 chaotic
+1 happy
+2 bittersweet
+#end
 `;
