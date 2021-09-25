@@ -8,6 +8,11 @@ body {
   background: #060017;
 }
 
+#title {
+  color: darkgray;
+  font-size: 40px;
+}
+
 #menu {
   max-width: 400px;
 }
@@ -78,6 +83,7 @@ body {
 
 #output {
   margin-top: 3rem;
+  margin-bottom: 10rem;
 }
 
 .prompt {
@@ -92,3 +98,14 @@ body {
   .prompt a:hover {
       text-decoration: underline;
   }
+
+
+@media (max-width: 700px){
+  .tab-content {
+    width: 300px;
+  }
+
+  #title {
+    font-size: 30px;
+  }
+}
