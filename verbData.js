@@ -1,7 +1,8 @@
 verbData = `
 #verb:
-1 sitting
-1 dancing
-1 crying
+1 <none> sitting 
+1 <none> dancing
+1 <none> crying
+1 <object> throwing
 #end
 `;

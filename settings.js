@@ -103,6 +103,7 @@ advancedTab.onclick = function() {
 	techValue.innerHTML = tech.value;
 	nounValue.innerHTML = noun.value;
 	adjValue.innerHTML = adj.value;
+	verbValue.innerHTML = verb.value;
 }
 
 // Style Toggle
