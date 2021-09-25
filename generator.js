@@ -12,10 +12,10 @@ window.onload = function onLoad() {
 // Generate prompt by picking a random template, then filled in by fillInTemplate()
 // Then returning prompt in HTML
 function generate() {
-	let template = pickRandom('template', getPromptValue());
+	let template = pickRandom('template', null, getPromptValue());
 	let result = fillInTemplate(template)+'<br>';
 	if(getStyleToggle()) {
-		let style = fillInTemplate('In (a) {style} art style.');
+		let style = fillInTemplate('In !a {style} art style.');
 		result += '<br>'+style;
 	}
 	if(getTechToggle()) {
@@ -40,33 +40,44 @@ function fillInTemplate(template) {
 	// substitute '{category}' w/ a call to the appropriate generate function
 	if (template.includes('{')) {
 		let category = getTextBetweenTags(template, '{', '}');
-		let replacement = 'NaN';
+		let args = getTextBetweenTags(category, '(', ')');
+		let replacement = 'NULL';
+
+		if(args) {
+			category = category.substr(0, category.indexOf('('));
+		}
 
 		switch (category) {
 			case 'style':
-				replacement = generateItem(category, getStyleValue());
+				replacement = generateItem(category, null, getStyleValue());
 				break;
 			case 'technique':
-				replacement = generateItem(category, getTechValue());
+				replacement = generateItem(category, null, getTechValue());
 				break;
 
 			case 'NP':
-			case 'AP':
 			case 'PP':
-			case 'VP':
-				replacement = generateItem(category, 1);
+			case 'AP':
+			case 'VP':	
+				replacement = generateItem(category, args, 1);
 				break;
+
 			case 'object':
 			case 'person':
 			case 'animal':
 			case 'setting':
-				replacement = generateItem(category, getNounValue());
+			case 'concept':
+			case 'mood':
+				replacement = generateItem(category, null, getNounValue());
 				break;
 			case 'adjective':
-				replacement = generateItem(category, getAdjValue());
+				replacement = generateItem(category, null, getAdjValue());
 				break;
 			case 'verb':
-				replacement = generateItem(category, getVerbValue());
+				replacement = generateItem(category, args, getVerbValue());
+				break;
+			case 'verbPhrase':
+				replacement = generateItem(category, null, getVerbValue());
 				break;
 		}
 
@@ -76,12 +87,12 @@ function fillInTemplate(template) {
 	}
 
 	// replace '(a)' w/ appropriate indefinite article based on context
-	if (template.includes('(')) {
-		let word = template.substring(template.indexOf(')') + 2);
+	if (template.includes('!a')) {
+		let word = template.substring(template.indexOf('!a') + 2);
 		let replacement = indefiniteArticle(word);
-		template = replaceTextBetweenTags(template, replacement, '(', ')');
-		
-		return fillInTemplate(template); // recursively fill all commands
+		template = replaceTextBetweenTags(template, replacement, '!', 'a');
+
+		return fillInTemplate(template);
 	}
 
 	// replace '(v1, v2)' w/ conjugation of verb based on category being singular or plural.
@@ -101,8 +112,8 @@ function fillInTemplate(template) {
 
 // Generates random item using category & complexity
 // Includes link if there is one
-function generateItem(category, complexity){
-	var text = pickRandom(category, complexity);
+function generateItem(category, args, complexity){
+	var text = pickRandom(category, args, complexity);
 	if(text.includes('=')) {
 		var link = text.substr(text.indexOf('= ')+1);
 		text = text.substr(0,text.indexOf('= ')-1).trim();
@@ -124,11 +135,15 @@ function getCategory(category_name) {
 		case 'person':
 		case 'animal':
 		case 'setting':
+		case 'concept':
+		case 'mood':
 			return getTextBetweenTags(nounData, start_tag, end_tag).split('\n');
 		case 'adjective':
 			return getTextBetweenTags(adjectiveData, start_tag, end_tag).split('\n');
 		case 'verb':
 			return getTextBetweenTags(verbData, start_tag, end_tag).split('\n');
+		case 'verbPhrase':
+			return getTextBetweenTags(verbPhraseData, start_tag, end_tag).split('\n');
 	}
 
 	return getTextBetweenTags(data, start_tag, end_tag).split('\n');
@@ -136,20 +151,32 @@ function getCategory(category_name) {
 
 // Returns random entry in list w/ less or equal complexity
 // Except for template complexity 2+ which ignores complexity 1
-function pickRandom(category_name, complexity) {
+function pickRandom(category_name, args, complexity) {
 	let category = categories[category_name];
 	let random_index = -1; 
+	let result = "NULL";
 	
 	while(random_index == -1) {
 		let temp = Math.floor(Math.random() * category.length);
-		if(category[temp].charAt(0) <= complexity) {
-			random_index = temp
+		if(args){
+			if(category[temp].charAt(0) <= complexity && category[temp].includes('<'+args+'>')) {
+				random_index = temp				
+			}
+		} else {
+			if(category[temp].charAt(0) <= complexity) {
+				random_index = temp
+			}
 		}
 	}
 
-	var result = resolveOptions(category[random_index].substr(2).trim());  //-------------------- NOTE: only used for template?
+	if(args)
+		result = category[random_index].substr(category[random_index].indexOf('>')+1).trim();
+	else
+		result = category[random_index].substr(2).trim();
 
-	return result;
+	
+	
+	return resolveOptions(result);
 }
 
 // Replace comma-separated entries inside square brackets with random entry
@@ -170,9 +197,11 @@ function pickRandomFromList(list) {
 }
 
 // Note: must handle start and end tags being identical
-
 function getTextBetweenTags(text, start_tag, end_tag) {
-	return text.split(start_tag)[1].split(end_tag)[0];
+	if(text.includes(start_tag))
+		return text.split(start_tag)[1].split(end_tag)[0];
+	else
+		return null;
 }
 
 function replaceTextBetweenTags(text, replacement, start_tag, end_tag) {

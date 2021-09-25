@@ -1,15 +1,21 @@
 category_names = [
 	"template",
+
     "NP",
     "AP",
     "PP",
     "VP",
+    "verbPhrase",
+
     "object",
     "person",
     "animal",
     "setting",
+    "concept",
+    "mood",
     "adjective",
     "verb",
+
     "style",
     "technique"
 ];
@@ -18,21 +24,30 @@ data = `
 ----------------- Notes ----------------- 
 • Categories are defined by #categoryname: ... #end
 • Hyperlinks are defined by = ...
-• (a) will be replaced with a/an depending on context
+• !a will be replaced with a/an depending on context
 • {category} will be replaced with a call to the corresponding generate function
 • [item1, item2] will be replaced w/ a random item in the list 
+• (arg1, arg2) determine what arguments can be passed
 
 ----------------- TEMPLATE ----------------- 
 #template:
-1 Show (a) {AP} [{object}, {person}, {animal}] {PP}.
-1 Create a portait of (a) {AP} [{person}, {animal}].
-1 Combine (a) {AP} [{object}, {person}, {animal}] & (a) {AP} [{object}, {person}, {animal}].
-1 Show (a) {AP} [{object}, {person}, {animal}] {VP} next to (a) {AP} [{object}, {person}, {animal}].
+1 Show {NP(agent)} {PP(setting)}.1
+1 Create a portait of {NP(living)}.2
+1 Combine {NP(agent)} & {NP(agent)}.3
+1 Show {NP(agent)} {VP(none)} {PP(setting)}.4
+1 Show {NP(living)} {VP(none)} next to {NP(agent)}.5
+1 Show {NP(living)} {PP(setting)} {VP(object)}.6
+1 Convey the idea of {concept}.7
+1 Show {NP(living)} experiencing {concept}.8
+1 Convey a feeling that is {mood}.9
 #end
 
 ----------------- Noun Phrase ----------------- 
 #NP:
-1 (a) {AP} {setting}
+1 <agent> !a {AP} [{person}, {animal}, {object}]
+1 <living> !a {AP} [{person}, {animal}]
+1 <object> !a {object}
+1 <setting> !a {setting}
 #end
 ----------------- Adjective Phrase ----------------- 
 #AP:
@@ -42,12 +57,14 @@ data = `
 #end
 ----------------- Preposition Phrase ----------------- 
 #PP:
-1 in {NP}
+1 <object> on {NP(object)}
+1 <setting> in {NP(setting)}
 #end
 
 ----------------- Verb Phrase ----------------- 
 #VP:
-1 {verb}
+1 <none> {verb(none)}
+1 <object> {verb(object)} {NP(object)}
 #end
 
 ----------------- STYLE ----------------- 
