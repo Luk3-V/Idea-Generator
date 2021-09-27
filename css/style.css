@@ -8,9 +8,18 @@ body {
   background: #060017;
 }
 
+
+
 #title {
+  text-align: center!important;
   color: darkgray;
-  font-size: 40px;
+  font-size: 40px!important;
+}
+
+#github {
+  text-align: right!important;
+  color: darkgray;
+  font-size: 30px;
 }
 
 #menu {
@@ -100,12 +109,18 @@ body {
   }
 
 
-@media (max-width: 700px){
+@media (max-width: 575.5px){
   .tab-content {
     width: 300px;
   }
 
   #title {
-    font-size: 30px;
+    font-size: 30px!important;
+  }
+
+  #github {
+    text-align: center!important;
+    font-size: 20px;
+    margin-bottom: 10px;
   }
 }
