@@ -7,7 +7,7 @@ adjectiveCategories = [
 	"material",
 	"origin",
 	"number",
-	"adj-lighting"
+	"adj-lighting",
 	"adj-land",
 	"adj-water",
 	"adj-sky"
