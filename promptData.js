@@ -1,4 +1,4 @@
-category_names = [
+promptCategories = [
 	"template",
 
     "NP",
@@ -6,64 +6,64 @@ category_names = [
     "PP",
     "VP",
 
-    "object",
-    "person",
-    "animal",
-    "setting",
-    "concept",
-    "mood",
-    "adjective",
-    "verb",
-
     "style",
     "technique"
 ];
 
-data = `
+promptData = `
 ----------------- Notes ----------------- 
 • Categories are defined by #categoryname: ... #end
 • Hyperlinks are defined by = ...
+• Complexity is defined by the 1, 2, or 3
+• Subcategories are defined <arg1, arg2>
 • !a will be replaced with a/an depending on context
 • {category} will be replaced with a call to the corresponding generate function
+• {*category} will pluralize the word
 • [item1, item2] will be replaced w/ a random item in the list 
-• (arg1, arg2) determine what arguments can be passed
+• (arg1, arg2) determine what subcategories to pick from
 
 ----------------- TEMPLATE ----------------- 
 #template:
-1 Show {NP(agent)} {PP(setting)}.1
-1 Create a portait of {NP(living)}.2
-1 Combine {NP(agent)} & {NP(agent)}.3
-1 Show {NP(agent)} {VP(none)} {PP(setting)}.4
-1 Show {NP(living)} {VP(none)} next to {NP(agent)}.5
-1 Show {NP(living)} {PP(setting)} {VP(object)}.6
-1 Convey the idea of {concept}.7
-1 Show {NP(living)} experiencing {concept}.8
-1 Convey a feeling that is {mood}.9
+1 Show {NP(agent)} {VP(none)} {PP(setting)}.1
+1 Show {NP(landscape)} with {NP(water)} & {NP(sky)}.2
+1 Convey the idea of {concept}.3
+1 Convey a feeling that is {mood}.4
 #end
 
 ----------------- Noun Phrase ----------------- 
 #NP:
-1 <agent> !a {AP} [{person}, {animal}, {object}]
-1 <living> !a {AP} [{person}, {animal}]
-1 <object> !a {object}
-1 <setting> !a {setting}
+1 <agent> !a [{AP(living)} {person}, {AP(living)} {animal}, {AP(object)} {object}]
+1 <living> !a {AP(living)} [{person}, {animal}]
+1 <object> !a {AP(object)} {object}
+
+1 <landscape> !a {adj-land} landscape
+1 <water> !a {adj-water} {water}
+1 <sky> !a {adj-sky} sky
+
+1 <bodypart> !a {bodypart}
+1 <place> !a {place}
+1 <time> the {time}
+
+1 <*agent> {number} [{AP(living)} {*person}, {AP(living)} {*animal}, {AP(object)} {*object}]
+1 <*living> {number} {AP(living)} [{*person}, {*animal}]
+1 <*object> {number} {AP(object)} {*object}
 #end
 ----------------- Adjective Phrase ----------------- 
 #AP:
-1 
-1 {adjective}
-1 very {adjective}
+1 <living> [{color}, {size}, {shape}, {age}, {opinion}, {material}, {origin}]
+1 <living> very [{color}, {size}, {shape}, {age}, {opinion}]
+1 <object> [{color}, {size}, {shape}, {opinion}, {material}, {origin}]
+1 <object> very [{color}, {size}, {shape}, {opinion}]
 #end
 ----------------- Preposition Phrase ----------------- 
 #PP:
 1 <object> on {NP(object)}
-1 <setting> in {NP(setting)}
+1 <setting> in [{NP(place)}, {NP(time)}]
 #end
-
 ----------------- Verb Phrase ----------------- 
 #VP:
-1 <none> {verb(none)}
-1 <object> {verb(object)} {NP(object)}
+1 <none> [{action(none)}, {expression(none)}, {movement(none)}]
+1 <object> {action(object)} {NP(object)}
 #end
 
 ----------------- STYLE ----------------- 
