@@ -149,6 +149,9 @@ function pickRandom(category_name, args, complexity) {
 	
 	while(random_index == -1) {
 		let temp = Math.floor(Math.random() * category.length);
+		if(category_name == 'template' && category[temp].charAt(0) != complexity){
+			continue;
+		}
 		if(args){
 			if(category[temp].charAt(0) <= complexity && category[temp].includes('<'+args+'>')) {
 				random_index = temp				
