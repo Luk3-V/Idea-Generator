@@ -3,9 +3,21 @@ let recently_used = [];
 
 // Store list of entries by category name 
 window.onload = function onLoad() {
-	for (let i = 0; i < category_names.length; i ++) {
-		name = category_names[i];
-		categories[name] = getCategory(name);
+	for(let i = 0; i < promptCategories.length; i ++) {
+		name = promptCategories[i];
+		categories[name] = getCategory(name, 'prompt');
+	}
+	for(let i = 0; i < nounCategories.length; i ++) {
+		name = nounCategories[i];
+		categories[name] = getCategory(name, 'noun');
+	}
+	for(let i = 0; i < adjectiveCategories.length; i ++) {
+		name = adjectiveCategories[i];
+		categories[name] = getCategory(name, 'adjective');
+	}
+	for(let i = 0; i < verbCategories.length; i ++) {
+		name = verbCategories[i];
+		categories[name] = getCategory(name, 'verb');
 	}
 }
 
@@ -23,15 +35,6 @@ function generate() {
 		result += '<br>'+tech;
 	}
 	document.getElementById("result").innerHTML = result;
-	/*if(getToggleValue()) {
-		let template = pickRandom('template2', getPromptValue());
-		let result = fillInTemplate(template);
-		document.getElementById("result").innerHTML = result;
-	} else {
-		let template = pickRandom('template1', getPromptValue());
-		let result = fillInTemplate(template);
-		document.getElementById("result").innerHTML = result;
-	}*/
 }
 
 // Recursively fill in template parameters with random items, 
@@ -41,10 +44,15 @@ function fillInTemplate(template) {
 	if (template.includes('{')) {
 		let category = getTextBetweenTags(template, '{', '}');
 		let args = getTextBetweenTags(category, '(', ')');
+		let plural = false;
 		let replacement = 'NULL';
 
 		if(args) {
 			category = category.substr(0, category.indexOf('('));
+		}
+		if(category.charAt(0) == '*') {
+			category = category.replace('*', '');
+			plural = true;
 		}
 
 		switch (category) {
@@ -61,24 +69,19 @@ function fillInTemplate(template) {
 			case 'VP':	
 				replacement = generateItem(category, args, 1);
 				break;
-
-			case 'object':
-			case 'person':
-			case 'animal':
-			case 'setting':
-			case 'concept':
-			case 'mood':
-				replacement = generateItem(category, null, getNounValue());
-				break;
-			case 'adjective':
-				replacement = generateItem(category, null, getAdjValue());
-				break;
-			case 'verb':
-				replacement = generateItem(category, args, getVerbValue());
-				break;
 		}
 
-		template = replaceTextBetweenTags(template, replacement, '{', '}');
+		if(nounCategories.includes(category)) 
+			replacement = generateItem(category, null, getNounValue());
+		else if(adjectiveCategories.includes(category))
+			replacement = generateItem(category, null, getAdjValue());
+		else if(verbCategories.includes(category))
+			replacement = generateItem(category, args, getVerbValue());
+
+		if(plural)
+			template = replaceTextBetweenTags(template, pluralize(replacement), '{', '}');
+		else
+			template = replaceTextBetweenTags(template, replacement, '{', '}');
 		
 		return fillInTemplate(template); // recursively fill all generators
 	}
@@ -123,25 +126,18 @@ function generateItem(category, args, complexity){
 // ------------------------------------ UTILITY ------------------------------------
 
 // Returns list of lines between #category_name: and #end from data files
-function getCategory(category_name) {
+function getCategory(category_name, type) {
 	let start_tag = `#${category_name}:\n`;
 	let end_tag = '\n#end';
 
-	switch(category_name) {
-		case 'object':
-		case 'person':
-		case 'animal':
-		case 'setting':
-		case 'concept':
-		case 'mood':
-			return getTextBetweenTags(nounData, start_tag, end_tag).split('\n');
-		case 'adjective':
-			return getTextBetweenTags(adjectiveData, start_tag, end_tag).split('\n');
-		case 'verb':
-			return getTextBetweenTags(verbData, start_tag, end_tag).split('\n');
-	}
+	if(type == 'noun')
+		return getTextBetweenTags(nounData, start_tag, end_tag).split('\n');
+	if(type == 'adjective')
+		return getTextBetweenTags(adjectiveData, start_tag, end_tag).split('\n');
+	if(type == 'verb')
+		return getTextBetweenTags(verbData, start_tag, end_tag).split('\n');
 
-	return getTextBetweenTags(data, start_tag, end_tag).split('\n');
+	return getTextBetweenTags(promptData, start_tag, end_tag).split('\n');
 }
 
 // Returns random entry in list w/ less or equal complexity
