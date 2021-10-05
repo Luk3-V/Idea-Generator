@@ -24,10 +24,16 @@ promptData = `
 
 ----------------- TEMPLATE ----------------- 
 #template:
-1 Show {NP(agent)} {VP(none)} {PP(setting)}.1
-1 Show {NP(landscape)} with {NP(water)} & {NP(sky)}.2
-1 Convey the idea of {concept}.3
-1 Convey a feeling that is {mood}.4
+1 Show {NP(agent)} {PP(setting)}.
+1 Show {NP(agent)} {PP(object)}.
+1 Show {NP(living)} with {NP(object)}.
+1 Show {NP(landscape)} with {NP(sky)}.
+1 Show {NP(landscape)} with {NP(water)}.
+1 Convey the [idea of {concept}, feeling of {mood}].
+
+2 Show {NP(agent)} next to {NP(object)}, {PP(setting)}.
+2 Show {NP(agent)} {VP(none)} while conveying the [idea of {concept}, feeling of {mood}].
+2 Show a landscape with {NP(*terrain)} & {NP(sky)}.
 #end
 
 ----------------- Noun Phrase ----------------- 
@@ -47,17 +53,21 @@ promptData = `
 1 <*agent> {number} [{AP(living)} {*person}, {AP(living)} {*animal}, {AP(object)} {*object}]
 1 <*living> {number} {AP(living)} [{*person}, {*animal}]
 1 <*object> {number} {AP(object)} {*object}
+1 <*plant> {AP(object)} {*plant}
+1 <*terrain> {AP(object)} {*terrain}
 #end
 ----------------- Adjective Phrase ----------------- 
 #AP:
+1 <living> 
 1 <living> [{color}, {size}, {shape}, {age}, {opinion}, {material}, {origin}]
 1 <living> very [{color}, {size}, {shape}, {age}, {opinion}]
+1 <object>
 1 <object> [{color}, {size}, {shape}, {opinion}, {material}, {origin}]
 1 <object> very [{color}, {size}, {shape}, {opinion}]
 #end
 ----------------- Preposition Phrase ----------------- 
 #PP:
-1 <object> on {NP(object)}
+1 <object> [on, next to, under, in front of, inside] {NP(object)}
 1 <setting> in [{NP(place)}, {NP(time)}]
 #end
 ----------------- Verb Phrase ----------------- 

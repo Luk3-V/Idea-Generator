@@ -95,7 +95,6 @@ let advancedTab = document.getElementById("advancedTab");
 basicTab.onclick = function() {
 	basicValue.innerHTML = basic.value;
 	prompt.value = basic.value;
-	console.log(toggle.value);
 }
 advancedTab.onclick = function() {
 	promptValue.innerHTML = prompt.value;
@@ -108,6 +107,9 @@ advancedTab.onclick = function() {
 
 // Style Toggle
 let styleToggle = true;
+//styleRange.setAttribute("disabled", "");
+//styleRange.setAttribute("style", "opacity: 0.4;");
+//styleLabel.setAttribute("style", "opacity: 0.4;");
 
 $(document).on('change','#styleToggle', function() {
 	let styleRange = document.getElementById("styleRange");
@@ -131,6 +133,9 @@ function getStyleToggle() {
 
 // Technique Toggle
 let techToggle = true;
+//techRange.setAttribute("disabled", "");
+//techRange.setAttribute("style", "opacity: 0.4;");
+//techLabel.setAttribute("style", "opacity: 0.4;");
 
 $(document).on('change','#techToggle', function() {
 	let techRange = document.getElementById("techRange");

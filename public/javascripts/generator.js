@@ -95,16 +95,6 @@ function fillInTemplate(template) {
 		return fillInTemplate(template);
 	}
 
-	// replace '(v1, v2)' w/ conjugation of verb based on category being singular or plural.
-	//if (template.includes('(')) {
-	//	let options_list = getTextBetweenTags(template, '(', ')').split(',');
-	//	let index = (character_is_group)?1:0;
-	//	let option = options_list[index].trim();
-
-	//	template = replaceTextBetweenTags(template, option, '(', ')');
-	//	return fillInTemplate(template)
-	//}
-
 	return template;
 }
 

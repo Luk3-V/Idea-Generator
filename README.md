@@ -1,6 +1,6 @@
 # About
 
-This project utilizes the concept of [Generative Grammar](https://en.wikipedia.org/wiki/Generative_grammar) & involves lexicon of most frequently used English words. 
+This project utilizes the concept of [Generative Grammar](https://en.wikipedia.org/wiki/Generative_grammar) & involves a lexicon of most frequently used English words. 
 
 Words were sorted from the [Google Web Trillion Word Corpus](https://www.kaggle.com/rtatman/english-word-frequency) & [American English Subtitle Corpus](https://www.kaggle.com/lukevanhaezebrouck/subtlex-word-frequency).
 

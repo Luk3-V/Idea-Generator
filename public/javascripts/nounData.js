@@ -17,7 +17,6 @@ nounData = `
 1 apple
 1 star
 1 rock
-1 money
 2 campfire
 #end
 -----------------------------------------------------------
@@ -67,10 +66,10 @@ nounData = `
 #end
 -----------------------------------------------------------
 #mood:
-1 calm
-1 chaotic
-1 happy
-2 bittersweet
+1 calmness
+1 chaoticness
+1 happiness
+2 bittersweetness
 #end
 
 ----------------- OUTDOOR NOUNS ----------------- 

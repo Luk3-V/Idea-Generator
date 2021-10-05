@@ -1,0 +1,24 @@
+{
+  "name": "idea-generator",
+  "version": "1.0.0",
+  "description": "This project utilizes the concept of Generative Grammar & involves a lexicon of most frequently used English words.",
+  "author": "Luke Vanhaezebrouck",
+  "license": "ISC",
+  "homepage": "https://github.com/Luk3-V/Idea-Generator#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luk3-V/Idea-Generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Luk3-V/Idea-Generator/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "pluralize": "^8.0.0"
+  }
+}
