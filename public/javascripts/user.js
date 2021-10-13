@@ -1,3 +1,20 @@
+// Generate Button
+let generateBtn = document.getElementById('generateButton')
+
+generateBtn.onclick = async function() {
+	let settings =
+ 		"prompt=" + getPromptValue() +
+ 		"&style=" +((getStyleToggle()) ? getStyleValue() : 0) +
+ 		"&tech=" + ((getTechToggle()) ? getTechValue() : 0)  +
+ 		"&noun=" + getNounValue() +
+ 		"&adj=" + getAdjValue() +
+ 		"&verb=" + getVerbValue();
+	const response = await fetch('/generate?' + settings);
+	const data = await response.json();
+	document.getElementById("result").innerHTML = data;
+}
+
+
 // Prompt Complexity
 let prompt = document.getElementById("promptRange");
 let promptValue = document.getElementById("promptValue");
@@ -108,8 +125,8 @@ advancedTab.onclick = function() {
 // Style Toggle
 let styleToggle = true;
 //styleRange.setAttribute("disabled", "");
-//styleRange.setAttribute("style", "opacity: 0.4;");
-//styleLabel.setAttribute("style", "opacity: 0.4;");
+//styleRange.setAttribute("style", "opacity + 0.4;");
+//styleLabel.setAttribute("style", "opacity + 0.4;");
 
 $(document).on('change','#styleToggle', function() {
 	let styleRange = document.getElementById("styleRange");
@@ -122,8 +139,8 @@ $(document).on('change','#styleToggle', function() {
 	} else {
 		styleToggle = false;
 		styleRange.setAttribute("disabled", "");
-		styleRange.setAttribute("style", "opacity: 0.4;");
-		styleLabel.setAttribute("style", "opacity: 0.4;");
+		styleRange.setAttribute("style", "opacity + 0.4;");
+		styleLabel.setAttribute("style", "opacity + 0.4;");
 	}
 });
 
@@ -134,8 +151,8 @@ function getStyleToggle() {
 // Technique Toggle
 let techToggle = true;
 //techRange.setAttribute("disabled", "");
-//techRange.setAttribute("style", "opacity: 0.4;");
-//techLabel.setAttribute("style", "opacity: 0.4;");
+//techRange.setAttribute("style", "opacity + 0.4;");
+//techLabel.setAttribute("style", "opacity + 0.4;");
 
 $(document).on('change','#techToggle', function() {
 	let techRange = document.getElementById("techRange");
@@ -148,8 +165,8 @@ $(document).on('change','#techToggle', function() {
 	} else {
 		techToggle = false;
 		techRange.setAttribute("disabled", "");
-		techRange.setAttribute("style", "opacity: 0.4;");
-		techLabel.setAttribute("style", "opacity: 0.4;");
+		techRange.setAttribute("style", "opacity + 0.4;");
+		techLabel.setAttribute("style", "opacity + 0.4;");
 	}
 });
 

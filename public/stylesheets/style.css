@@ -8,18 +8,20 @@ body {
   background: #060017;
 }
 
+h1 {
+  font-size: 40px;
+}
 
 
 #title {
   text-align: center!important;
   color: darkgray;
-  font-size: 40px!important;
 }
 
 #github {
   text-align: right!important;
   color: darkgray;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 #menu {
@@ -92,7 +94,7 @@ body {
 
 #output {
   margin-top: 3rem;
-  margin-bottom: 10rem;
+  margin-bottom: 7rem;
 }
 
 .prompt {
@@ -108,19 +110,25 @@ body {
       text-decoration: underline;
   }
 
+#info {
+  max-width: 440px;
+  font-family: 'Courier New', monospace!important;
+  color: gray;
+}
+
 
 @media (max-width: 575.5px){
   .tab-content {
     width: 300px;
   }
 
-  #title {
+  h1 {
     font-size: 30px!important;
   }
 
   #github {
     text-align: center!important;
-    font-size: 20px;
+    font-size: 30px;
     margin-bottom: 10px;
   }
 }
