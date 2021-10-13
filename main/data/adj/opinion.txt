@@ -1,0 +1,8 @@
+1 beautiful
+1 ugly
+1 magestic
+1 scary
+1 normal
+1 strange
+1 interesting
+1 boring

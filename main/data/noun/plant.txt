@@ -1,0 +1,7 @@
+1 bush
+1 tree
+1 root
+1 flower
+1 grass
+2 coral
+1 vine

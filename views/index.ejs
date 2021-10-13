@@ -15,28 +15,20 @@
 
 	    <!-- Custom CSS-->
 	    <link rel="stylesheet" href="stylesheets/style.css">
-
-	    <!-- Custom JavaScript-->
-	    <script src="javascripts/promptData.js"></script>
-		<script src="javascripts/nounData.js"></script>
-		<script src="javascripts/adjectiveData.js"></script>
-		<script src="javascripts/verbData.js"></script>
-		<script src="javascripts/generator.js"></script>
-		<script src="javascripts/pluralize-master/pluralize.js"></script>
 	</head>
 	<body>
 		<div class="containter">
 			<div>
 				<div class="row m-2 mt-3 mb-3">
 				    <div class="col">
-				      	
+				      	<h4 class="text-muted">v0.1</h4>
 				    </div>
-				    <div class="col-12 col-sm-3 order-sm-2" id="github">
+				    <div class="col-12 col-sm-2 order-sm-2" id="github">
 				      	<a href="https://github.com/Luk3-V/Idea-Generator" class="text-muted">
 							<i class="bi bi-github"></i>
 						</a>
 				    </div> 
-				    <div class="col-12 col-sm-6 order-sm-1" id="title">
+				    <div class="col-12 col-sm-8 order-sm-1" id="title">
 				      	<h1>Random Art Ideas</h1>
 				    </div>
 				</div>
@@ -87,15 +79,25 @@
 					</div>
 				</div>
 					
-				<button class="btn btn-outline-light mt-4" id="generateButton" type="button" onclick="generate()">Generate</button>
+				<button class="btn btn-outline-light mt-4" id="generateButton" type="button">Generate</button>
 			</div>
 			
 			<div class="container text-white text-center" id="output">
 				<p class="prompt" id="result">...</p>
 			</div>
+			<div class="container" id="info">
+				<h3><hr/>Coming Soon:</h3>
+				<p>- More nouns, adjectives, & verbs.</p>
+				<p>- More types of people & objects.</p>
+				<p>- More verb phrases.</p>
+				<p>- More preposition phrases.</p>
+				<p>- More art elements.</p>
+				<p>- Famous/Historic people & events.</p>
+				<p>- Better prompts at higher complexity.<hr/></p>
+			</div>
 		</div>
 			
 
 	</body>
-	<script src="javascripts/settings.js"></script>
+	<script src="javascripts/user.js"></script>
 </html>

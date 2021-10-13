@@ -1,0 +1,10 @@
+1 book
+1 map
+1 sign
+1 cup
+1 wheel
+1 bell
+1 candle
+1 scroll
+1 brick
+1 rope

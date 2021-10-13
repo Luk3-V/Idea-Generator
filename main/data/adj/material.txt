@@ -1,0 +1,7 @@
+1 paper
+1 metal
+1 wooden
+1 plastic
+1 ceramic
+1 glass
+1 cloth

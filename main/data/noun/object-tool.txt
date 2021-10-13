@@ -1,0 +1,14 @@
+1 staff
+1 pen
+1 lamp
+1 blade
+1 sword
+1 hammer
+1 pencil
+1 telescope
+1 cane
+1 torch
+1 axe
+1 ruler
+1 flashlight
+3 pickaxe

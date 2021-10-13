@@ -1,0 +1,11 @@
+1 island
+1 canyon
+1 mountain
+1 cliff
+1 hill
+1 plain
+1 valley
+1 cave
+2 ravine
+1 volcano
+2 sinkhole

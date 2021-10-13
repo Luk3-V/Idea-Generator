@@ -1,0 +1,127 @@
+1 happy
+1 sad
+1 disgust
+1 anger
+1 fear
+1 suprise
+5
+5
+1 optimism
+2 intimacy
+1 peaceful
+1 powerful
+2 accepting
+2 pride
+1 interesting
+1 joyful
+4
+1 boring
+1 lonely
+1 depression
+1 despair
+2 abandonment
+1 guilt
+4
+2 avoidance
+1 disappointment
+2 disapproving
+4
+2 critical
+2 distant
+2 frustration
+1 aggressive
+1 hateful
+2 threatening
+1 painful
+4
+2 humiliating
+2 rejecting
+2 submissive
+2 insecure
+1 anxious
+1 scary
+4
+1 startling
+1 confusing
+1 amazing
+1 exciting
+5
+5
+1 inspiring
+1 open
+1 playful
+2 sensitive
+1 hopeful
+1 loving
+2 provacative
+2 courageous
+2 fulfilling
+2 respectful
+2 confident
+2 important
+2 inquisitive
+2 amusing
+2 estatic
+2 liberating
+4
+2 indifferent
+2 apathetic
+1 isolated
+1 empty
+2 inferior
+2 vulnerable
+1 powerless
+2 victimizing
+2 ignored
+1 shame
+2 remorse
+4
+2 hesitant
+2 aversion
+2 detestible
+2 revulsion
+2 revolt
+2 repugnant
+2 loath
+2 judgmental
+4
+2 sarcastic
+2 skeptical
+2 suspicious
+2 withdrawn
+2 irritating
+2 infuriating
+1 hostile
+2 provoked
+1 rage
+2 furious
+2 violated
+2 resentful
+1 envy
+2 insecure
+2 devastating
+2 embarassing
+4
+2 ridivuled
+2 disrespect
+2 alienate
+2 inadequate
+2 insignificant
+2 worthless
+1 worry
+1 overwhelming
+1 frightening
+1 terrifying
+4
+1 shocking
+2 dismay
+2 disillusion
+2 perplexing
+2 astonishing
+1 awe
+2 eager
+1 energetic
+5
+5
+2 bittersweet
+1 calm

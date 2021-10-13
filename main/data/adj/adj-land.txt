@@ -1,0 +1,7 @@
+1 barren
+1 hilly
+1 rocky
+1 flat
+1 dry
+1 humid
+1 snowy

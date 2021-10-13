@@ -1,0 +1,10 @@
+1 desert
+1 plains
+1 jungle
+1 forest
+1 swamp
+1 meadows
+2 marsh
+2 savanna
+2 taiga
+2 tundra

@@ -1,0 +1,18 @@
+1 whale
+1 fish
+1 salmon
+2 eel
+1 shark
+1 dolphin
+4
+1 seal
+1 frog
+1 turtle
+3 otter
+1 alligator
+3 hippopotamus
+3 newt
+3 salamander
+3 platypus
+3 porpoise
+3 walrus

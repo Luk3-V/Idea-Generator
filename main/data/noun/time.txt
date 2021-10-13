@@ -1,0 +1,7 @@
+1 night
+1 daytime
+1 morning
+1 evening
+1 sunrise
+1 sunset
+2 future

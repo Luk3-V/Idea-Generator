@@ -1,0 +1,7 @@
+1 bat
+1 crow
+1 parrot
+3 canary
+3 finch
+3 parakeet
+1 bird

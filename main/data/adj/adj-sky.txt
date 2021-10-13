@@ -1,0 +1,9 @@
+1 stormy
+1 clear
+1 cloudy
+1 windy
+1 sunny
+1 rainy
+1 bright
+1 dark
+1 foggy

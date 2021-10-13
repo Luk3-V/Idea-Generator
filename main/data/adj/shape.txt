@@ -1,0 +1,7 @@
+1 round
+1 square
+1 triangle
+1 flat
+1 wavy
+1 smooth
+1 jagged

@@ -1,0 +1,12 @@
+1 American
+1 European
+1 Mexican
+1 African
+1 Asian
+1 Russian
+1 Indian
+1 Australian
+1 Latin
+1 Spanish
+1 Dutch
+1 English
