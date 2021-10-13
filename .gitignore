@@ -1,3 +1,5 @@
-nouns-ORIGINAL/
+noun-ORIGINAL/
+adj-ORIGINAL/
+verb-ORIGINAL/
 node_modules/
 createData.py
