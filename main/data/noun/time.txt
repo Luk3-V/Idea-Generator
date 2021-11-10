@@ -4,4 +4,3 @@
 1 evening
 1 sunrise
 1 sunset
-2 future

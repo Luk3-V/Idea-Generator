@@ -3,5 +3,13 @@
 1 rocky
 1 flat
 1 dry
-1 humid
+1 tropical
 1 snowy
+1 icy
+1 empty
+1 grassy
+1 lush
+1 mountainous
+1 epic
+1 cruel
+2 alien

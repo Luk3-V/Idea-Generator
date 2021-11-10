@@ -18,10 +18,18 @@ h1 {
   color: darkgray;
 }
 
+#version {
+  font-family: monospace!important;
+  font-weight:  normal!important;
+}
+
 #github {
   text-align: right!important;
   color: darkgray;
   font-size: 40px;
+  position: absolute;
+  right:  10px;
+  top:  10px;
 }
 
 #menu {
@@ -123,12 +131,11 @@ h1 {
   }
 
   h1 {
+    padding-top: 10px;
     font-size: 30px!important;
   }
 
   #github {
-    text-align: center!important;
     font-size: 30px;
-    margin-bottom: 10px;
   }
 }

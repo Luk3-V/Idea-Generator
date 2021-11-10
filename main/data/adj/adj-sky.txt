@@ -7,3 +7,10 @@
 1 bright
 1 dark
 1 foggy
+1 radiant
+1 golden
+1 grey
+1 dull
+1 gloomy
+1 misty
+1 empty

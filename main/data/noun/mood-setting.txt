@@ -1,0 +1,81 @@
+1 happy
+1 sad
+1 disgusting
+1 scary
+1 suprising
+5
+5
+1 optimistic
+1 peaceful
+1 powerful
+2 accepting
+2 prideful
+1 interesting
+1 joyful
+4
+1 boring
+1 lonely
+1 depressing
+4
+1 disappointing
+4
+2 distant
+2 frustrating
+1 aggressive
+1 hateful
+2 threatening
+1 painful
+4
+1 anxious
+1 scary
+4
+1 startling
+1 confusing
+1 exciting
+5
+5
+1 inspiring
+1 open
+1 playful
+1 hopeful
+1 loving
+2 provacative
+1 important
+4
+1 isolated
+1 empty
+2 inferior
+2 vulnerable
+2 powerless
+4
+2 detestible
+2 repugnant
+4
+2 sarcastic
+2 suspicious
+2 irritating
+2 infuriating
+1 hostile
+2 enraging
+2 furiating
+2 devastating
+4
+2 disrespectful
+2 alienated
+2 inadequate
+1 insignificant
+2 worthless
+2 worrying
+1 overwhelming
+1 frightening
+1 terrifying
+4
+1 shocking
+2 perplexing
+2 astonishing
+1 awesome
+1 energetic
+5
+5
+2 bittersweet
+1 calm

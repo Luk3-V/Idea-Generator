@@ -4,6 +4,7 @@
 1 forest
 1 swamp
 1 meadows
+1 grassland
 2 marsh
 2 savanna
 2 taiga

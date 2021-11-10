@@ -1,0 +1,10 @@
+1 tavern
+1 castle
+1 tower
+1 temple
+1 dungeon
+1 cottage
+1 fortress
+2 crypt
+2 cathedral
+2 gallows

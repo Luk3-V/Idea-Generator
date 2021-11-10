@@ -2,5 +2,5 @@
 1 small
 1 tall
 1 short
-1 wide
-1 thin
+1 fat
+1 skinny

@@ -6,9 +6,9 @@ generateBtn.onclick = async function() {
  		"prompt=" + getPromptValue() +
  		"&style=" +((getStyleToggle()) ? getStyleValue() : 0) +
  		"&tech=" + ((getTechToggle()) ? getTechValue() : 0)  +
- 		"&noun=" + getNounValue() +
- 		"&adj=" + getAdjValue() +
- 		"&verb=" + getVerbValue();
+ 		"&noun=" + getWordValue() +
+ 		"&adj=" + getWordValue() +
+ 		"&verb=" + getWordValue();
 	const response = await fetch('/generate?' + settings);
 	const data = await response.json();
 	document.getElementById("result").innerHTML = data;
@@ -51,42 +51,17 @@ function getTechValue() {
 	return tech.value
 }
 
-// Noun Complexity
-let noun = document.getElementById("nounRange");
-let nounValue = document.getElementById("nounValue");
+//Word Complexity
+let word = document.getElementById("wordRange");
+let wordValue = document.getElementById("wordValue");
 
-noun.oninput = function() {
-  nounValue.innerHTML = this.value;
+word.oninput = function() {
+  wordValue.innerHTML = this.value;
 }
 
-function getNounValue() {
-	return noun.value
+function getWordValue() {
+	return word.value
 }
-
-// Adjective Complexity
-let adj = document.getElementById("adjRange");
-let adjValue = document.getElementById("adjValue");
-
-adj.oninput = function() {
-  adjValue.innerHTML = this.value;
-}
-
-function getAdjValue() {
-	return adj.value
-}
-
-// Verb Complexity
-let verb = document.getElementById("verbRange");
-let verbValue = document.getElementById("verbValue");
-
-verb.oninput = function() {
-  verbValue.innerHTML = this.value;
-}
-
-function getVerbValue() {
-	return verb.value
-}
-
 
 
 // Basic Complexity
@@ -117,9 +92,7 @@ advancedTab.onclick = function() {
 	promptValue.innerHTML = prompt.value;
 	styleValue.innerHTML = style.value;
 	techValue.innerHTML = tech.value;
-	nounValue.innerHTML = noun.value;
-	adjValue.innerHTML = adj.value;
-	verbValue.innerHTML = verb.value;
+	wordValue.innerHTML = word.value;
 }
 
 // Style Toggle

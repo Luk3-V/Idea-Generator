@@ -1,7 +1,14 @@
 1 bat
 1 crow
-1 parrot
+2 parrot
 3 canary
 3 finch
 3 parakeet
 1 bird
+1 eagle
+1 falcon
+1 vulture
+1 stork
+1 crane
+1 duck
+1 goose

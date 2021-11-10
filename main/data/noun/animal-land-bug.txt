@@ -1,0 +1,8 @@
+1 insect
+1 ant
+1 spider
+1 catapiller
+1 worm
+1 beetle
+1 grasshopper
+2 praying mantis

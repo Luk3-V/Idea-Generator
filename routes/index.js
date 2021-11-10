@@ -8,7 +8,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/generate', function(req, res, next) {
-	console.log('generating...' + req.query);
+	//console.log('generating...');
+	console.log(req.query);
 	let result = generate(req.query);
 	res.json(result);
 });

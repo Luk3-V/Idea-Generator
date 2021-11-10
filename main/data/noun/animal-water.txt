@@ -4,9 +4,18 @@
 2 eel
 1 shark
 1 dolphin
+1 octopus
+1 squid
+1 clownfish
+2 catfish
+1 starfish
+1 jellyfish
+1 lobster
 4
 1 seal
+1 penguin
 1 frog
+1 crab
 1 turtle
 3 otter
 1 alligator

@@ -6,27 +6,27 @@
 1 yellow
 1 brown
 1 pink
-1 rose
+1 rose colored
 1 orange
-1 cream
+1 cream colored
 1 gray
 1 purple
-2 amber
-2 tan
-2 olive
+2 amber colored
+2 tan colored
+2 olive colored
 2 beige
 2 violet
 2 turquoise
 2 burgundy
 2 scarlet
 2 maroon
-3 mauve
-3 russet
-2 aqua
-2 ivory
-3 azure
+3 mauve colored
+3 russet colored
+2 aqua colored
+2 ivory colored
+3 azure colored
 1 magenta
 2 mustard
-1 navy
-2 plum
+1 navy colored
+2 plum colored
 2 teal

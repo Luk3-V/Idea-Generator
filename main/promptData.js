@@ -24,42 +24,63 @@ module.exports.promptData = `
 
 ----------------- TEMPLATE ----------------- 
 #template:
-1 Show {NP(living)}.
-1 Show {NP(landscape)} with {NP(sky)}.
-1 Show {NP(landscape)} with {NP(water)}.
-1 Convey the [theme: <i>{concept}</i>, mood: <i>{mood}</i>].
+1 {NP(landscape)}.
+1 {NP(landscape)} with {NP(water)}.
+1 {NP(landscape)} with {NP(sky)}.
+1 {NP(landscape)} with {NP(place-all)}.
+1 {NP(landscape)} that gives the feeling of <i>{mood}</i>.
+1 {NP(landscape)} during {NP(time)}.
 
-2 Show {NP(agent)} {PP(setting)}.
-2 Show {NP(living)} with {NP(object)}.
-2 Show {NP(agent)} & {NP(object)}, {PP(setting)}.
-2 Show {NP(agent)} {VP(none)} while conveying the [theme: <i>{concept}</i>, mood: <i>{mood}</i>].
-2 Show a landscape with {NP(*terrain)} & {NP(sky)}.
+1 [{NP(animal)}, {NP(*animal)}].
+1 {NP(landscape)} with [{NP(*animal-land)}, {NP(*animal-sky)}, {NP(*animal-bug)}].
+1 {NP(water)} with {NP(*animal-water)}.
+1 {NP(sky)} with [{NP(*animal-sky)}, {NP(*animal-sky-bug)}].
 #end
 
 ----------------- Noun Phrase ----------------- 
 #NP:
-1 <agent> !a [{AP(living)} {person}, {AP(living)} {animal}, {AP(object)} {object}]
-1 <living> !a {AP(living)} [{person}, {animal}]
-1 <object> !a {AP(object)} {object}
+<landscape> [!a {adj-land} landscape, !a {biome}, !a {terrain}, {*terrain}]
+<place-all> !a {place, place-medieval}
+<animal> !a {AP(animal)} {animal-land, animal-water, animal-sky, animal-bug}
 
-1 <landscape> !a [{adj-land} landscape, {biome}]
-1 <water> !a {water}
-1 <sky> !a {adj-sky} sky
+<terrain> !a {terrain}
+<water> !a {water}
+<sky> !a {adj-sky} sky
+<time> the {time}
+<animal-land> !a {animal-land}
+<animal-water> !a {animal-water}
+<animal-sky> !a {animal-sky}
+<animal-land-bug> !a {animal-land-bug}
+<animal-sky-bug> !a {animal-sky-bug}
+<animal-bug> !a {animal-land-bug, animal-sky-bug}
 
-1 <bodypart> !a {bodypart}
-1 <place> !a {place}
-1 <time> the {time}
+<*animal> {AP(animal)} {*animal-land, animal-water, animal-sky, animal-bug}
 
-1 <*agent> {number} [{AP(living)} {*person}, {AP(living)} {*animal}, {AP(object)} {*object}]
-1 <*living> {number} {AP(living)} [{*person}, {*animal}]
-1 <*object> {number} {AP(object)} {*object}
-1 <*plant> {AP(object)} {*plant}
-1 <*terrain> {AP(object)} {*terrain}
+<*terrain> {*terrain}
+<*animal-land> {*animal-land}
+<*animal-water> {*animal-water}
+<*animal-sky> {*animal-sky}
+<*animal-land-bug> {*animal-land-bug}
+<*animal-sky-bug> {*animal-sky-bug}
+<*animal-bug> !a {*animal-land-bug, animal-sky-bug}
+
+
+<agent> !a [{AP(living)} {person, animal}, {AP(object)} {object}]
+
+<object> !a {AP(object)} {object}
+
+<bodypart> !a {bodypart}
+
+<*agent> {number} [{AP(living)} {*person, animal}, {AP(object)} {*object}]
+<*living> {number} {AP(living)} {*person, animal}
+<*object> {number} {AP(object)} {*object}
+<*plant> {AP(object)} {*plant}
 #end
 ----------------- Adjective Phrase ----------------- 
 #AP:
-1 <living> [{color}, {size}, {age}, {opinion}, {origin}]
-1 <object> [{color}, {size}, {shape}, {opinion}, {material}]
+<animal> {color, size, opinion}
+<object> {color, size, shape, opinion, material}
+<living> test
 #end
 ----------------- Preposition Phrase ----------------- 
 #PP:

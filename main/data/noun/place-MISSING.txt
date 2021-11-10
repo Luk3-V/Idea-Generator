@@ -16,3 +16,6 @@ town hall
 derelict warehouse
 discount store
 construction site
+1 pharmacy
+1 highway
+1 bathroom

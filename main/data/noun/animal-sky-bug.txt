@@ -1,0 +1,6 @@
+1 fly
+1 moth
+1 butterfly
+1 dragonfly
+1 firefly
+1 bumblebee

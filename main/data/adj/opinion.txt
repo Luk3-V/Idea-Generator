@@ -4,5 +4,3 @@
 1 scary
 1 normal
 1 strange
-1 interesting
-1 boring

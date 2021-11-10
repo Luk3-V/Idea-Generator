@@ -20,16 +20,16 @@
 		<div class="containter">
 			<div>
 				<div class="row m-2 mt-3 mb-3">
-				    <div class="col">
-				      	<h4 class="text-muted">v0.1</h4>
+				    <div class="col-12"  id='version'>
+				      	<h4 class="text-muted">v0.2</h4>
 				    </div>
-				    <div class="col-12 col-sm-2 order-sm-2" id="github">
+				    <div id="github">
 				      	<a href="https://github.com/Luk3-V/Idea-Generator" class="text-muted">
 							<i class="bi bi-github"></i>
 						</a>
 				    </div> 
-				    <div class="col-12 col-sm-8 order-sm-1" id="title">
-				      	<h1>Random Art Ideas</h1>
+				    <div class="col-12" id="title">
+				      	<h1>Art Idea Generator</h1>
 				    </div>
 				</div>
 			</div>	
@@ -49,17 +49,20 @@
 					</div>
 					<!-- advanced sliders -->
 					<div class="tab-pane fade p-3" id="advanced" role="tab-panel" aria-labelledby="advancedTab">
-						<label for="promptRange" class="form-label">Prompt Complexity: <span id="promptValue"></span></label>
+						<label for="promptRange" class="form-label">Sentence Complexity: <span id="promptValue"></span></label>
 						<input type="range" class="form-range" min="1" max="3" value="1" id="promptRange">
 
-						<label for="nounRange" class="form-label">Noun Complexity: <span id="nounValue"></span></label>
+						<label for="wordRange" class="form-label">Word Complexity: <span id="wordValue"></span></label>
+						<input type="range" class="form-range" min="1" max="3" value="1" id="wordRange">
+
+						<!--<label for="nounRange" class="form-label">Noun Complexity: <span id="nounValue"></span></label>
 						<input type="range" class="form-range" min="1" max="3" value="1" id="nounRange">
 
 						<label for="adjRange" class="form-label">Adjective Complexity: <span id="adjValue"></span></label>
 						<input type="range" class="form-range" min="1" max="3" value="1" id="adjRange">
 
 						<label for="verbRange" class="form-label">Verb Complexity: <span id="verbValue"></span></label>
-						<input type="range" class="form-range" min="1" max="3" value="1" id="verbRange">
+						<input type="range" class="form-range" min="1" max="3" value="1" id="verbRange">-->
 
 						<label for="styleRange" class="form-label" id="styleLabel">Style Complexity: <span id="styleValue"></span></label>
 						<input type="range" class="form-range" min="1" max="3" value="1" id="styleRange">
@@ -88,15 +91,13 @@
 			<div class="container" id="info">
 				<h3><hr/>Coming Soon:</h3>
 				<p>- More nouns, adjectives, & verbs.</p>
-				<p>- More types of people & objects.</p>
-				<p>- More verb phrases.</p>
-				<p>- More preposition phrases.</p>
 				<p>- More art elements.</p>
-				<p>- Famous/Historic people & events.</p>
-				<p>- Better prompts at higher complexity.<hr/></p>
+				<p>- Add nouns for people & objects.</p>
+				<p>- Add verb phrases.</p>
+				<p>- Add preposition phrases.</p>
+				<p>- Add Famous/Historic people & events.</p>
 			</div>
 		</div>
-			
 
 	</body>
 	<script src="javascripts/user.js"></script>

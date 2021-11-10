@@ -1,9 +1,0 @@
-1 animal
-1 mammal
-1 amphibian
-1 fish
-1 bird
-1 monkey
-1 ape
-1 bug
-1 insect
