@@ -1,11 +1,9 @@
 module.exports.nounCategories = [
 	"object",
 	"person",
-	"animal",
 	"animal-land",
 	"animal-water",
 	"animal-sky",
-	"animal-bug",
 	"animal-land-bug",
 	"animal-sky-bug",
 	"plant",

@@ -41,7 +41,7 @@ module.exports.promptData = `
 #NP:
 <landscape> [!a {adj-land} landscape, !a {biome}, !a {terrain}, {*terrain}]
 <place-all> !a {place, place-medieval}
-<animal> !a {AP(animal)} {animal-land, animal-water, animal-sky, animal-bug}
+<animal> !a {AP(animal)} {animal-land, animal-water, animal-sky, animal-land-bug, animal-sky-bug}
 
 <terrain> !a {terrain}
 <water> !a {water}
@@ -54,7 +54,7 @@ module.exports.promptData = `
 <animal-sky-bug> !a {animal-sky-bug}
 <animal-bug> !a {animal-land-bug, animal-sky-bug}
 
-<*animal> {AP(animal)} {*animal-land, animal-water, animal-sky, animal-bug}
+<*animal> {AP(animal)} {*animal-land, animal-water, animal-sky, animal-land-bug, animal-sky-bug}
 
 <*terrain> {*terrain}
 <*animal-land> {*animal-land}
@@ -63,24 +63,11 @@ module.exports.promptData = `
 <*animal-land-bug> {*animal-land-bug}
 <*animal-sky-bug> {*animal-sky-bug}
 <*animal-bug> !a {*animal-land-bug, animal-sky-bug}
-
-
-<agent> !a [{AP(living)} {person, animal}, {AP(object)} {object}]
-
-<object> !a {AP(object)} {object}
-
-<bodypart> !a {bodypart}
-
-<*agent> {number} [{AP(living)} {*person, animal}, {AP(object)} {*object}]
-<*living> {number} {AP(living)} {*person, animal}
-<*object> {number} {AP(object)} {*object}
-<*plant> {AP(object)} {*plant}
 #end
 ----------------- Adjective Phrase ----------------- 
 #AP:
 <animal> {color, size, opinion}
 <object> {color, size, shape, opinion, material}
-<living> test
 #end
 ----------------- Preposition Phrase ----------------- 
 #PP:
