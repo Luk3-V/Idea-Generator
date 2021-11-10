@@ -15,12 +15,13 @@ module.exports.promptData = `
 • Categories are defined by #categoryname: ... #end
 • Hyperlinks are defined by = ...
 • Complexity is defined by the 1, 2, or 3
-• Subcategories are defined <arg1, arg2>
+• Subcategories are defined <args>
 • !a will be replaced with a/an depending on context
 • {category} will be replaced with a call to the corresponding generate function
 • {*category} will pluralize the word
-• [item1, item2] will be replaced w/ a random item in the list 
-• (arg1, arg2) determine what subcategories to pick from
+• {category1, category2} will be replaced with a combined category
+• [phrase1, phrase2] will be replaced w/ a random variation from all the possible phrases
+• (args) determine what subcategories to pick from
 
 ----------------- TEMPLATE ----------------- 
 #template:
